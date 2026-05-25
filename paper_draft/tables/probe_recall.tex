@@ -1,0 +1,17 @@
+\begin{table}[t]
+    \centering
+    \caption{Per-class recall for the grouped embedding probe on unseen content anchors. Overt production shifts are easiest to recover from embeddings alone.}
+    \label{tab:probe_recall}
+    \begin{tabular}{@{}lc@{}}
+        \toprule
+        Mode & Recall \\
+        \midrule
+        \texttt{dictated\_spoken} & \textbf{0.700} \\
+        \texttt{llm\_generated} & 0.617 \\
+        \texttt{keyboard\_noisy} & 0.567 \\
+        \texttt{llm\_humanized} & 0.567 \\
+        \texttt{human\_original} & 0.250 \\
+        \texttt{human\_polished} & 0.233 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

@@ -26,14 +26,14 @@ The examples are in a different research domain - focus only on presentation sty
 # Modes in LLM Reading
 
 ## 1. Executive Summary
-This project tested whether large language models can detect production "modes" in text beyond binary human-vs-AI authorship, and whether mode behaves like a latent variable in LLM-derived representations. Using a controlled six-mode corpus built from HC3 answers and real OpenAI transformations, `gpt-4.1` achieved perfect six-way classification on the custom benchmark, while a grouped stylometric baseline reached `0.400` accuracy and an embedding probe on `text-embedding-3-large` reached `0.489` accuracy on unseen content groups.
+This project tested whether large language models can detect production &#34;modes&#34; in text beyond binary human-vs-AI authorship, and whether mode behaves like a latent variable in LLM-derived representations. Using a controlled six-mode corpus built from HC3 answers and real OpenAI transformations, `gpt-4.1` achieved perfect six-way classification on the custom benchmark, while a grouped stylometric baseline reached `0.400` accuracy and an embedding probe on `text-embedding-3-large` reached `0.489` accuracy on unseen content groups.
 
 The strongest conclusion is not that LLMs can identify exact generator provenance. On an external six-class source-attribution benchmark from SemEval-2024 Task 8 Subtask B, the same `gpt-4.1` setup reached only `0.256` accuracy and mostly collapsed non-human systems into `chatGPT` or `human`. The evidence therefore supports a narrower claim: LLMs are very good at reading broad process modes such as dictated/spoken style, keyboard-noisy text, and LLM-post-edited prose, but much weaker at zero-shot fine-grained generator identity.
 
 Practically, this suggests that mode detection is real and useful for provenance screening, editing-state inference, and ambiguity-aware evaluation, but current zero-shot prompting should not be trusted for source attribution across model families. The latent-variable evidence is promising but partial: mode is represented strongly enough to support grouped probing and stable transformation directions, yet the custom benchmark is easy enough that prompt-induced artifacts and same-family generation effects remain serious threats to validity.
 
-## 2. Research Question & Motivation
-The research question was: what text-production modes can current LLMs detect beyond simple human-vs-LLM authorship, and can "mode" be isolated as a latent variable in LLM interpretation?
+## 2. Research Question &amp; Motivation
+The research question was: what text-production modes can current LLMs detect beyond simple human-vs-LLM authorship, and can &#34;mode&#34; be isolated as a latent variable in LLM interpretation?
 
 This matters because LLMs are increasingly used as readers, judges, and filters. If they infer not only semantic content but also how text was produced, then moderation, educational-integrity tooling, provenance analysis, and downstream trust calibration all depend on understanding those inferences. The main gap in the gathered literature was the lack of a unified, content-controlled benchmark spanning multiple production modes rather than a single binary or attribution task.
 
@@ -49,7 +49,7 @@ The local literature review identified four relevant clusters.
 4. Behavioral and missing-mode signals.
    Keystroke-based work suggests production mode exists even beyond final text, while keyboard-layout and typo-pattern inference remain underexplored in text-only settings.
 
-The main opportunity was a matched-content benchmark that varies mode while holding content roughly fixed, then tests whether mode remains visible to a reader model and to the reader model's embeddings.
+The main opportunity was a matched-content benchmark that varies mode while holding content roughly fixed, then tests whether mode remains visible to a reader model and to the reader model&#39;s embeddings.
 
 ## 4. Methodology
 
@@ -66,7 +66,7 @@ The main opportunity was a matched-content benchmark that varies mode while hold
 - Embedding model: `text-embedding-3-large`
 - Temperature: `0.0`
 - Grouped evaluation: 5-fold `GroupKFold` by content anchor
-- Embedding probe: `StandardScaler -> PCA(95% variance) -> OneVsRest(LogisticRegression)`
+- Embedding probe: `StandardScaler -&gt; PCA(95% variance) -&gt; OneVsRest(LogisticRegression)`
 - Stylometric baseline: hand-crafted features with the same grouped evaluation protocol
 
 ### 4.3 Controlled Six-Mode Corpus
@@ -167,8 +167,8 @@ For each transformed mode, I measured the cosine similarity of embedding deltas 
 
 | Mode | Within mean | Between mean | BH-adjusted p |
 |---|---:|---:|---:|
-| `keyboard_noisy` | `0.111` | `-0.015` | `< 1e-121` |
-| `dictated_spoken` | `0.094` | `0.027` | `< 1e-60` |
+| `keyboard_noisy` | `0.111` | `-0.015` | `&lt; 1e-121` |
+| `dictated_spoken` | `0.094` | `0.027` | `&lt; 1e-60` |
 | `llm_humanized` | `0.058` | `0.034` | `4.13e-13` |
 | `llm_generated` | `0.036` | `0.014` | `6.67e-09` |
 | `human_polished` | `0.029` | `0.021` | `0.0064` |
@@ -202,12 +202,12 @@ This is the most important negative result in the study. The same model that eas
 - Feature baseline outputs: [results/stylometric_features_and_predictions.csv](/workspaces/llm-reading-modes-af09-codex/results/stylometric_features_and_predictions.csv)
 - Figures: [figures/custom_mode_confusion.png](/workspaces/llm-reading-modes-af09-codex/figures/custom_mode_confusion.png), [figures/mode_probe_accuracy.png](/workspaces/llm-reading-modes-af09-codex/figures/mode_probe_accuracy.png), [figures/delta_similarity.png](/workspaces/llm-reading-modes-af09-codex/figures/delta_similarity.png), [figures/semeval_subtaskB_confusion.png](/workspaces/llm-reading-modes-af09-codex/figures/semeval_subtaskB_confusion.png), [figures/custom_mode_lengths.png](/workspaces/llm-reading-modes-af09-codex/figures/custom_mode_lengths.png)
 
-## 6. Analysis & Discussion
+## 6. Analysis &amp; Discussion
 The results support the main hypothesis in a qualified form.
 
 First, broad production modes are clearly readable by a real LLM. In the controlled corpus, `gpt-4.1` cleanly distinguished original human answers, direct LLM generations, humanized LLM text, polished human text, dictated/spoken-style rewrites, and keyboard-noisy text. Because the stylometric baseline was much weaker, this does not reduce to a simple length-or-punctuation heuristic.
 
-Second, the embedding analysis supports the latent-variable interpretation. The grouped probe succeeded on unseen content, and the mode-specific transformation vectors were more consistent within a mode than across modes. This is exactly what we would expect if "mode" behaves like a reusable representational direction rather than a purely example-specific surface label.
+Second, the embedding analysis supports the latent-variable interpretation. The grouped probe succeeded on unseen content, and the mode-specific transformation vectors were more consistent within a mode than across modes. This is exactly what we would expect if &#34;mode&#34; behaves like a reusable representational direction rather than a purely example-specific surface label.
 
 Third, the external benchmark sharply bounds the claim. The model did not demonstrate a strong zero-shot ability to separate `cohere`, `davinci`, `bloomz`, and `dolly` from `chatGPT`. That implies mode detection is strongest for high-level process properties such as editing state, speech-likeness, or noise patterns, not necessarily for robust fingerprinting of individual model families.
 
@@ -226,7 +226,7 @@ The most plausible interpretation is that LLMs detect a hierarchy of modes:
 - SemEval evaluation was zero-shot only. Fine-tuned attribution models would almost certainly outperform the prompting baseline.
 - The project did not run a span-level boundary experiment from SemEval Subtask C, so the latent-variable claim was tested at document level only.
 
-## 8. Conclusions & Next Steps
+## 8. Conclusions &amp; Next Steps
 The clearest answer to the research question is yes, LLMs do appear to detect multiple production modes beyond binary authorship, and those modes leave a measurable footprint in LLM-derived embedding space. However, the phenomenon is strongest for broad process states such as dictated/spoken style, keyboard noise, and post-editing, not for precise zero-shot source attribution among multiple generator families.
 
 The next experiments should make the claim harder and cleaner:
@@ -258,7 +258,7 @@ API-backed stages are cached under `results/cache/` to make reruns faster and ch
 - Wu et al. 2023. *A Survey on LLM-Generated Text Detection.*
 - Wang et al. 2024. *SemEval-2024 Task 8: Multigenerator, Multidomain, and Multilingual Black-Box Machine-Generated Text Detection.*
 - Abassy et al. 2024. *LLM-DetectAIve.*
-- Ji et al. 2024. *Detecting Machine-Generated Texts: Not Just "AI vs Humans".*
+- Ji et al. 2024. *Detecting Machine-Generated Texts: Not Just &#34;AI vs Humans&#34;.*
 - Sarvazyan et al. 2024. *TEXTMACHINA.*
 - Kundu et al. 2024. *Keystroke Dynamics Against Academic Dishonesty in the Age of LLMs.*
 - Liu et al. 2024. *Recording for Eyes, Not Echoing to Ears.*
@@ -268,15 +268,15 @@ API-backed stages are cached under `results/cache/` to make reruns faster and ch
                             RESEARCH PLAN
 ════════════════════════════════════════════════════════════════════════════════
 
-# Research Plan: "Modes" in LLM Reading
+# Research Plan: &#34;Modes&#34; in LLM Reading
 
-## Motivation & Novelty Assessment
+## Motivation &amp; Novelty Assessment
 
 ### Why This Research Matters
 LLMs are already used as judges, detectors, and assistants in settings where they implicitly interpret not just semantic content but also how text was produced. If models reliably infer production modes such as LLM-generation, post-editing, speech-like dictation, or keyboard-noise patterns, that affects moderation, provenance analysis, educational integrity, and how downstream systems should calibrate trust in text.
 
 ### Gap in Existing Work
-The local literature review shows strong prior work on binary human-vs-machine detection, source attribution, mixed-authorship boundary detection, and spoken-to-written rewriting, but much weaker work on unified multi-mode detection under content controls and on treating "mode" as a latent variable rather than a task label. In particular, the gathered resources do not provide a benchmark that holds content approximately constant while varying production mode across multiple families.
+The local literature review shows strong prior work on binary human-vs-machine detection, source attribution, mixed-authorship boundary detection, and spoken-to-written rewriting, but much weaker work on unified multi-mode detection under content controls and on treating &#34;mode&#34; as a latent variable rather than a task label. In particular, the gathered resources do not provide a benchmark that holds content approximately constant while varying production mode across multiple families.
 
 ### Our Novel Contribution
 This project tests whether mode can be isolated as a cross-content latent variable by constructing a matched corpus where the same underlying answer is realized in multiple controlled modes. We then test two complementary claims: real LLMs can classify these modes from text alone, and LLM-derived embeddings encode stable mode directions that generalize across unseen content.
@@ -287,7 +287,7 @@ This project tests whether mode can be isolated as a cross-content latent variab
 - Experiment 3: SemEval Subtask B source-attribution evaluation is needed to verify that the observed phenomenon extends beyond our custom corpus to an external benchmark already identified in the literature.
 
 ## Research Question
-What text production modes can current LLMs detect beyond simple human-vs-LLM authorship, and can "mode" be isolated as a latent variable in LLM interpretation of text?
+What text production modes can current LLMs detect beyond simple human-vs-LLM authorship, and can &#34;mode&#34; be isolated as a latent variable in LLM interpretation of text?
 
 ## Background and Motivation
 Recent benchmarks show that source attribution, machine-human boundary detection, and process labels such as machine-humanized or human-polished are learnable. What remains underexplored is whether these are separate tasks or instances of a broader mode-recognition ability. This project studies that question by combining a controlled multi-mode corpus with real-LLM judgments and embedding analysis.
@@ -414,12 +414,12 @@ Evidence against the hypothesis would include near-chance classification once co
                           LITERATURE REVIEW
 ════════════════════════════════════════════════════════════════════════════════
 
-# Literature Review: "Modes" in LLM Reading
+# Literature Review: &#34;Modes&#34; in LLM Reading
 
 ## Review Scope
 
 ### Research Question
-What text "modes" can LLMs detect beyond simple human-vs-LLM authorship, and is "mode" a separable latent variable in text interpretation?
+What text &#34;modes&#34; can LLMs detect beyond simple human-vs-LLM authorship, and is &#34;mode&#34; a separable latent variable in text interpretation?
 
 ### Inclusion Criteria
 - Focuses on detecting text origin, generation process, editing process, or mixed authorship
@@ -461,7 +461,7 @@ Primary focus: 2023-2025, with one targeted proxy paper for spoken-to-written co
 - Datasets used: Reviews common detector benchmarks rather than introducing a new one.
 - Results: Not an empirical benchmark paper; its value is in the taxonomy and failure modes.
 - Code available: Yes, linked from the paper.
-- Relevance: Best entry point for framing "mode" as a family of signals rather than a single binary label.
+- Relevance: Best entry point for framing &#34;mode&#34; as a family of signals rather than a single binary label.
 
 ### 2. SemEval-2024 Task 8
 - Authors: Wang et al.
@@ -489,13 +489,13 @@ Primary focus: 2023-2025, with one targeted proxy paper for spoken-to-written co
 - Baselines: RoBERTa, DeBERTa, DistilBERT.
 - Results: Reports strong domain-specific performance, with RoBERTa around mid-`95%` macro-F1/accuracy on the shown domains.
 - Code available: Yes, repo cloned locally.
-- Relevance: Most directly aligned with the hypothesis that "mode" includes process labels like rewritten, polished, or humanized.
+- Relevance: Most directly aligned with the hypothesis that &#34;mode&#34; includes process labels like rewritten, polished, or humanized.
 
-### 4. Detecting Machine-Generated Texts: Not Just "AI vs Humans"
+### 4. Detecting Machine-Generated Texts: Not Just &#34;AI vs Humans&#34;
 - Authors: Ji et al.
 - Year: 2024
 - Source: arXiv
-- Key contribution: Introduces an explicit "undecided" category and argues that explainability breaks under forced binary labeling.
+- Key contribution: Introduces an explicit &#34;undecided&#34; category and argues that explainability breaks under forced binary labeling.
 - Methodology: Builds four datasets, identifies strong detectors and hard generators, then collects ternary labels plus explanation notes from annotators.
 - Datasets used: New human/LLM datasets with a ternary follow-up set.
 - Results: Main insight is conceptual: ambiguous cases are common enough that detection should represent them explicitly.
@@ -546,7 +546,7 @@ Primary focus: 2023-2025, with one targeted proxy paper for spoken-to-written co
 - Datasets used: SWAB, built from meeting, podcast, and lecture transcripts.
 - Results: Shows LLMs can reliably recognize and rewrite spoken-mode artifacts into written-formal text.
 - Code/data: Paper points to a public SWAB repository.
-- Relevance: Best direct proxy for the "dictated/spoken vs written" mode hypothesis.
+- Relevance: Best direct proxy for the &#34;dictated/spoken vs written&#34; mode hypothesis.
 
 ## Common Methodologies
 
@@ -643,7 +643,7 @@ Primary focus: 2023-2025, with one targeted proxy paper for spoken-to-written co
 
 - Recommended baselines:
   - RoBERTa-base and DeBERTa-v3 classifiers
-  - A simple abstaining classifier or ternary scheme with an "uncertain" class
+  - A simple abstaining classifier or ternary scheme with an &#34;uncertain&#34; class
   - If available, a sequence labeling or regression baseline for span/boundary tasks
 
 - Recommended metrics:

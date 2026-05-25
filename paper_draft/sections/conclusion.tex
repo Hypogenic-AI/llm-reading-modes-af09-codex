@@ -1,0 +1,8 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We study whether LLMs detect production modes beyond binary authorship and whether those modes behave like latent variables in representation space. Using a controlled six-mode corpus with matched \hcthree anchors, we find that \gptfourone perfectly separates broad production modes, substantially outperforms a grouped stylometric baseline, and leaves measurable mode structure in \embeddingmodel embeddings. At the same time, the same prompting setup performs poorly on external six-way source attribution in \semeval Subtask B.
+
+The key takeaway is straightforward: LLMs read broad process modes well, but zero-shot generator identity remains much harder.
+
+The next step is to make this claim harder to satisfy. Future work should decouple generator and judge model families, replace synthetic proxies with real dictated-versus-typed and keyboard-derived data, add abstention and ambiguity labels for borderline cases, and test whether the learned mode directions transfer to mixed-authorship benchmarks such as \semeval Subtask C.

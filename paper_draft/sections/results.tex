@@ -1,0 +1,50 @@
+\section{Results}
+\label{sec:results}
+
+\para{Main benchmark results.} \Tabref{tab:main_results} compares direct LLM judgment, the grouped stylometric baseline, and the grouped embedding probe on the controlled six-mode corpus. \gptfourone reaches perfect accuracy and macro-F1, while the stylometric baseline reaches 0.400 accuracy and the embedding probe reaches 0.489. The paired bootstrap gap between the LLM judge and the stylometric baseline is +0.602 accuracy (95\% CI: [0.555, 0.650]) and +0.618 macro-F1 (95\% CI: [0.573, 0.665]).
+
+\input{tables/main_results}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.78\linewidth]{figures/custom_mode_confusion.png}
+    \caption{Confusion matrix for zero-shot six-way mode classification on the controlled corpus. The matrix is perfectly diagonal, but the underlying probability outputs are not saturated: representative correct-class probabilities range from 0.75 to 0.94.}
+    \label{fig:custom_confusion}
+\end{figure}
+
+\para{The task is easy, but not vacuous.} \Figref{fig:custom_confusion} shows a perfectly diagonal confusion matrix for the controlled benchmark. The model does not appear to solve the task only by assigning near-certain probabilities to every example: representative correct-class probabilities remain moderate, including 0.75 for \texttt{human\_polished}, 0.78 for \texttt{dictated\_spoken}, and 0.80 for \texttt{llm\_humanized}. That pattern is consistent with a highly separable task rather than a degenerate prompt that simply elicits one fixed label.
+
+\para{Embedding probes recover mode above chance.} The grouped embedding probe reaches 0.489 accuracy on unseen content anchors, well above the 0.167 chance rate. A corrected 20-run permutation test yields shuffled accuracies between 0.139 and 0.203 and an observed $p=0.0476$. \Tabref{tab:probe_recall} shows that the probe separates overt mode shifts most clearly: \texttt{dictated\_spoken} reaches 0.700 recall, while the subtler \texttt{human\_original} and \texttt{human\_polished} classes remain much harder.
+
+\input{tables/probe_recall}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.72\linewidth]{figures/mode_probe_accuracy.png}
+    \caption{Grouped embedding-probe accuracy against the shuffled-label null distribution. The observed score of 0.489 sits well above the null range, which supports the claim that mode information survives content-grouped evaluation.}
+    \label{fig:probe_accuracy}
+\end{figure}
+
+\para{Mode deltas are directionally consistent.} \Tabref{tab:delta_similarity} summarizes the transformation-vector analysis. All five transformed modes show higher within-mode cosine similarity than between-mode similarity after Benjamini-Hochberg correction. The largest effects occur for \texttt{keyboard\_noisy} and \texttt{dictated\_spoken}, while \texttt{human\_polished} is statistically significant but much weaker.
+
+\input{tables/delta_similarity}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.78\linewidth]{figures/delta_similarity.png}
+    \caption{Within-mode versus between-mode cosine similarity for embedding deltas from \texttt{human\_original} to transformed variants. Larger gaps indicate more reusable mode-specific directions. Keyboard noise and dictated speech produce the clearest latent shifts.}
+    \label{fig:delta_similarity}
+\end{figure}
+
+\para{External validation sharply narrows the claim.} Strong in-domain mode recognition does not translate into robust zero-shot source attribution. \Tabref{tab:semeval_results} shows that \gptfourone reaches only 0.256 accuracy and 0.136 macro-F1 on \semeval Subtask B, only modestly above the 0.167 chance rate. The bootstrap 95\% confidence interval for accuracy is [0.194, 0.311]. \Figref{fig:semeval_confusion} shows why: the model correctly identifies 29/30 human examples and 17/30 ChatGPT examples, but it collapses almost all Cohere, Davinci, Bloomz, and Dolly examples into the human or ChatGPT labels.
+
+\input{tables/semeval_results}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.78\linewidth]{figures/semeval_subtaskB_confusion.png}
+    \caption{Confusion matrix for zero-shot six-way source attribution on \semeval Subtask B. Most non-human systems collapse into \chatgptlabel or human, which indicates that broad process cues transfer more readily than exact generator identity.}
+    \label{fig:semeval_confusion}
+\end{figure}
+
+\para{What pattern emerges across analyses?} The results consistently point to a hierarchy of detectable modes. Overt production changes such as keyboard noise and spoken-style dictation are strongest in both direct classification and latent-space consistency. Post-editing modes remain detectable, but they are weaker both in per-class probe recall and in delta alignment. Exact zero-shot source identity is weaker still. This ordering is the core empirical claim of the paper.

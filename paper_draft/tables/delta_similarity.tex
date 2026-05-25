@@ -1,0 +1,16 @@
+\begin{table}[t]
+    \centering
+    \caption{Transformation-vector consistency for each mode. We compare cosine similarity among deltas from \texttt{human\_original} to a transformed variant. Higher within-mode than between-mode similarity supports a reusable mode direction.}
+    \label{tab:delta_similarity}
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        Mode & Within mean & Between mean & BH-adjusted $p$ \\
+        \midrule
+        \texttt{keyboard\_noisy} & \textbf{0.111} & -0.015 & $< 10^{-121}$ \\
+        \texttt{dictated\_spoken} & 0.094 & 0.027 & $< 10^{-60}$ \\
+        \texttt{llm\_humanized} & 0.058 & 0.034 & $4.13 \times 10^{-13}$ \\
+        \texttt{llm\_generated} & 0.036 & 0.014 & $6.67 \times 10^{-9}$ \\
+        \texttt{human\_polished} & 0.029 & 0.021 & $6.40 \times 10^{-3}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}

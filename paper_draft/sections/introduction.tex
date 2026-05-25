@@ -1,0 +1,20 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Large language models do not only read \emph{what} a text says. They also appear to infer \emph{how} it was produced. That distinction matters because LLMs now sit inside moderation pipelines, educational-integrity tools, retrieval systems, and model-based evaluators. If those systems react differently to dictated text, edited text, or machine-written text, then production mode becomes part of the effective input to downstream decisions.
+
+\para{Why is this problem still open?} Existing work already shows that machine-generated text detection is feasible in many settings \cite{wu2023survey}, that exact generator attribution can be benchmarked at scale \cite{wang2024semeval}, and that process labels such as machine-humanized and human-machine-polished text are learnable \cite{abassy2024llmdetectaive}. Other lines of work isolate spoken-to-written conversion \cite{liu2024recording} or behavioral traces such as keystroke dynamics \cite{kundu2024keystroke}. What remains missing is a unified, content-controlled test of whether these tasks reflect a broader ability to read \emph{production mode} rather than a collection of unrelated labels.
+
+\para{Our main question is simple.} What text-production modes can current LLMs detect beyond binary human-vs-LLM authorship, and can mode be isolated as a latent variable in LLM-derived representations? We answer this question with a matched six-mode benchmark derived from \hcthree \cite{guo2023hc3}. Each content anchor is realized in six forms: human original, direct LLM generation, LLM-humanized text, human text polished by an LLM, dictated/spoken rewriting, and keyboard-noisy text. We then test the problem from three angles: zero-shot LLM classification, a grouped stylometric baseline, and embedding-space analyses that ask whether mode generalizes across unseen content.
+
+\para{The headline result is asymmetric.} On the controlled benchmark, \gptfourone classifies all six modes perfectly, while the stylometric baseline reaches 0.400 accuracy and the grouped embedding probe reaches 0.489 accuracy, well above the 0.167 chance rate. At the same time, the very same prompting setup reaches only 0.256 accuracy on six-way source attribution in \semeval Subtask B. This split matters more than the perfect in-domain score. It suggests that LLMs are especially good at reading broad process states such as spoken cadence, keyboard noise, and post-editing, but much weaker at zero-shot fine-grained generator identity.
+
+\para{We make four contributions.}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We construct a controlled six-mode corpus with 360 texts from 60 matched \hcthree anchors across three domains.
+    \item We show that a real LLM reader, \gptfourone, sharply separates broad production modes and substantially outperforms a grouped stylometric baseline.
+    \item We provide latent-variable evidence for mode using grouped embedding probes and within-mode transformation-vector consistency tests.
+    \item We bound the claim with an external negative result: zero-shot source attribution on \semeval remains weak and collapses most non-human systems into a small subset of labels.
+\end{itemize}
+
+\para{Paper organization.} \Secref{sec:related_work} positions our study relative to prior detection, attribution, and process-label work. \Secref{sec:methodology} describes the corpus construction and evaluation protocol. \Secref{sec:results} presents the main results, and \Secref{sec:discussion} interprets their scope and limits before \secref{sec:conclusion} concludes.
