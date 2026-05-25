@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "If you receive a call about a 17-year-old, charged-off debt, first ask the caller to verify their identity and the details of the debt. Debt collectors are required by the Fair Debt Collection Practices Act (FDCPA) to provide written verification of the debt if you request it in writing. If the caller refuses to provide this information or does not follow proper procedures, they may be violating the law, and you should report them to the appropriate authorities. If the caller is not a legitimate debt collector, it could be a scam, and you should also notify law enforcement.",
+    "llm_humanized": "If someone calls you about a debt from 17 years ago, start by asking them to prove who they are and what the debt is about. Legitimate debt collectors have to follow the Fair Debt Collection Practices Act, which means they need to send you written proof of the debt if you ask for it in writing. If they won\u2019t do that or dodge your questions, they\u2019re probably breaking the law, and you should report them. And if it turns out they\u2019re not even a real debt collector, it\u2019s likely a scam, so you\u2019ll want to let the authorities know about that too.",
+    "human_polished": "If they are a debt collector, they must comply with the Fair Debt Collection Practices Act, which requires them to provide you with verification of the debt if you request it in writing. If they refuse to give you a way to request this verification, they are violating the law, and you should contact the appropriate authorities. If the caller is not a legitimate debt collection agency, it may be a scam, in which case you should also notify law enforcement.",
+    "dictated_spoken": "So if you get a call about a debt from 17 years ago, and it\u2019s charged off, first thing is, if it\u2019s a debt collector, they have to follow the Fair Debt Collection Practices Act. That means if you ask them in writing, they have to give you proof of the debt. If they won\u2019t tell you how to do that, they\u2019re breaking the law, and you should reach out to the right authorities. But if it\u2019s not a real debt collector, it\u2019s probably a scam, so you should let law enforcement know about it too."
+  },
+  "usage": {
+    "input_tokens": 310,
+    "output_tokens": 476,
+    "total_tokens": 786
+  },
+  "anchor_id": "hc3_021"
+}

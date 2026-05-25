@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Someone who could afford a higher annual deductible but not a higher monthly payment is typically someone who has enough savings to cover unexpected medical expenses in a given year, but whose monthly budget is tight. For example, a young, healthy individual or couple who rarely visits the doctor might choose a plan with a higher deductible and lower monthly premium. They are willing to take the risk of paying more out-of-pocket in a bad year in exchange for saving money each month, as the lower premium fits better within their regular budget constraints.",
+    "llm_humanized": "Basically, if you have some savings set aside but your monthly cash flow is limited, you might go for a higher deductible and a lower monthly payment. That way, you\u2019re not stretching your budget every month, but you\u2019re taking on the risk that if something big happens, you\u2019ll have to pay more out of pocket. This is often what younger people or couples who don\u2019t go to the doctor much end up choosing\u2014they\u2019d rather save on premiums and just hope they don\u2019t need a lot of care.",
+    "human_polished": "I added the total annual out-of-pocket costs for each plan level to clarify the situation. Your question makes sense, but it's less about affordability and more about trying to save money. These plans are designed to offer choices based on your past healthcare usage. Personally, I can afford any of the options, but since I know how often we visit the doctor, I see that the lowest-cost option actually has the highest premium. For example, a young couple who rarely needs medical care might choose the highest deductible plan, accepting the risk of potentially paying $3,434 more in a bad year in exchange for saving $1,016 on premiums. For me, it's hard to predict well enough to benefit from the middle options, so I think most people end up choosing either the lowest or highest deductible.",
+    "dictated_spoken": "So I went ahead and added up the total annual out-of-pocket for each level just to make it clearer. Your question definitely makes sense, but it\u2019s not always about what you can afford\u2014it\u2019s more about trying to save money. The way these plans are set up, you get to pick based on your own experience. Like, I could afford any of them, but since I know how many doctor visits we usually have, I see that the lowest cost plan actually has the highest premium. For example, a young couple who hardly ever goes to the doctor might pick the highest deductible, so they\u2019re risking maybe $3,434 extra in a bad year just to save $1,016 on premiums. Personally, I can\u2019t really guess well enough to make the middle options work, so I think most people just go for one of the two extremes."
+  },
+  "usage": {
+    "input_tokens": 361,
+    "output_tokens": 570,
+    "total_tokens": 931
+  },
+  "anchor_id": "hc3_034"
+}

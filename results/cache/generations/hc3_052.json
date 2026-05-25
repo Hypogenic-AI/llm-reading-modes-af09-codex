@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Yes, you can continue taking Lactare capsules to support your milk supply, especially if you have found them helpful so far. Lactare is generally considered safe for breastfeeding mothers when used as directed. However, long-term use of any supplement should ideally be monitored by your healthcare provider. Side effects are uncommon but may include mild gastrointestinal discomfort or allergic reactions in rare cases. Alongside the capsules, maintaining a balanced diet rich in garlic, fenugreek, protein sources like meat, eggs, and fish (if you are non-vegetarian), and staying well-hydrated with 3 to 4 liters of fluids daily can further support lactation. If you notice any unusual symptoms, consult your doctor. Enjoy your motherhood journey!",
+    "llm_humanized": "You can keep taking Lactare capsules if they\u2019re helping with your milk supply\u2014most moms tolerate them well, and side effects are pretty rare, maybe just some mild stomach upset or an allergy in unusual cases. Still, it\u2019s a good idea to check in with your doctor if you plan to use them for several more months, just to be safe. Also, try adding more garlic and fenugreek to your meals, and if you eat meat, things like eggs and fish can help too. Don\u2019t forget to drink plenty of fluids\u2014aim for 3 to 4 liters a day\u2014and eat lots of fruits and veggies. If anything feels off, reach out to your healthcare provider. Hope this helps, and enjoy this special time with your baby!",
+    "human_polished": "Yes, you can continue taking Lactare capsules to support your milk supply. It\u2019s also beneficial to include plenty of garlic and fenugreek in your diet. If you are non-vegetarian, you can have meat, eggs, and fish. Make sure to drink at least 3 to 4 liters of fluids daily. Maintain a healthy diet with lots of seasonal fruits and vegetables, and try to have at least one glass of milk each day. Enjoy your motherhood! I hope I have answered your query. Please let me know if you need any further assistance. Regards, Dr. Saranya Ramadoss, General and Family Physician.",
+    "dictated_spoken": "Yeah so you can keep taking the Lactare capsules, that\u2019s fine. Also, try to add a lot of garlic and fenugreek to your food, and if you eat non-veg, you can have meat, eggs, and fish. Make sure you\u2019re drinking at least three to four liters of fluids every day. Try to eat a healthy diet with lots of seasonal fruits and vegetables, and have at least one glass of milk daily. Enjoy your motherhood. Hope that answers your question, let me know if you need anything else. Thanks, Dr. Saranya Ramadoss."
+  },
+  "usage": {
+    "input_tokens": 382,
+    "output_tokens": 583,
+    "total_tokens": 965
+  },
+  "anchor_id": "hc3_052"
+}

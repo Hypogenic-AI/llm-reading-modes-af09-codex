@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "World War II was primarily caused by unresolved tensions and resentments stemming from World War I, the harsh terms of the Treaty of Versailles, and the economic turmoil of the Great Depression. These factors fueled the rise of aggressive nationalist movements, particularly in Germany, Italy, and Japan. The immediate triggers were Germany's invasion of Poland in 1939 and Japan's earlier invasion of China in 1937, which set off a chain reaction of military conflicts across Europe and Asia.",
+    "llm_humanized": "A lot of what led to World War II goes back to the fallout from World War I\u2014things like the Treaty of Versailles left a lot of bitterness, especially in Germany. Then, the Great Depression made things even worse, creating instability and opening the door for leaders like Hitler and Mussolini to gain power. The war really kicked off when Germany invaded Poland in 1939, and Japan had already invaded China in 1937, so those events kind of set everything in motion.",
+    "human_polished": "The main causes of World War II were nationalistic tensions, unresolved issues, and resentments that resulted from World War I and the interwar period in Europe, as well as the impact of the Great Depression in the 1930s. The sequence of events that ultimately led to the outbreak of war is generally understood to include Germany and Soviet Russia's invasion of Poland in 1939 and the Empire of Japan's invasion of the Republic of China in 1937.",
+    "dictated_spoken": "So, the main causes of World War Two were things like nationalism and a lot of unresolved issues and resentments left over from World War One and the years in between, especially in Europe. Plus, the Great Depression in the 1930s made everything worse. The actual outbreak of the war is usually traced to Germany and Soviet Russia invading Poland in 1939, and before that, Japan invaded China in 1937, so those were kind of the big events that set it all off."
+  },
+  "usage": {
+    "input_tokens": 296,
+    "output_tokens": 419,
+    "total_tokens": 715
+  },
+  "anchor_id": "hc3_009"
+}

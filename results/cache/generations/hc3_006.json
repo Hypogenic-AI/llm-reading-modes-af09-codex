@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "The President of the United States serves as both the head of state and the head of government. The president leads the executive branch of the federal government, acts as commander-in-chief of the U.S. Armed Forces, and has the authority to grant federal pardons and reprieves. Additionally, the president can convene or adjourn Congress under extraordinary circumstances.",
+    "llm_humanized": "So, the President of the United States is basically in charge of the country\u2019s executive branch and is also the commander-in-chief of the military. They can grant pardons and reprieves at the federal level, and if something unusual happens, they have the power to call Congress into session or send them home.",
+    "human_polished": "The President of the United States of America (POTUS) is both the head of state and the head of government. The president leads the executive branch of the federal government and serves as the commander-in-chief of the United States Armed Forces. Additionally, the president has the authority to grant federal pardons and reprieves, and can convene or adjourn either or both houses of Congress in extraordinary circumstances.",
+    "dictated_spoken": "Okay so the president of the United States, or POTUS, is the head of state and also the head of government. The president runs the executive branch and is the commander-in-chief of the U.S. Armed Forces. They can also grant federal pardons and reprieves, and if there\u2019s something unusual going on, they can call Congress together or send them home."
+  },
+  "usage": {
+    "input_tokens": 287,
+    "output_tokens": 324,
+    "total_tokens": 611
+  },
+  "anchor_id": "hc3_006"
+}

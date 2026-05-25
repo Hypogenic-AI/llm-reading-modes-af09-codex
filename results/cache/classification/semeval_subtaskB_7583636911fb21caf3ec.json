@@ -1,0 +1,81 @@
+{
+  "predictions": [
+    {
+      "id": "7160",
+      "predicted_label": "chatGPT",
+      "probabilities": {
+        "human": 0.1,
+        "chatGPT": 0.6,
+        "cohere": 0.1,
+        "davinci": 0.1,
+        "bloomz": 0.05,
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "7494",
+      "predicted_label": "chatGPT",
+      "probabilities": {
+        "human": 0.1,
+        "chatGPT": 0.6,
+        "cohere": 0.1,
+        "davinci": 0.1,
+        "bloomz": 0.05,
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "7117",
+      "predicted_label": "chatGPT",
+      "probabilities": {
+        "human": 0.1,
+        "chatGPT": 0.6,
+        "cohere": 0.1,
+        "davinci": 0.1,
+        "bloomz": 0.05,
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "7272",
+      "predicted_label": "chatGPT",
+      "probabilities": {
+        "human": 0.1,
+        "chatGPT": 0.6,
+        "cohere": 0.1,
+        "davinci": 0.1,
+        "bloomz": 0.05,
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "7290",
+      "predicted_label": "chatGPT",
+      "probabilities": {
+        "human": 0.1,
+        "chatGPT": 0.6,
+        "cohere": 0.1,
+        "davinci": 0.1,
+        "bloomz": 0.05,
+        "dolly": 0.05
+      }
+    },
+    {
+      "id": "7489",
+      "predicted_label": "chatGPT",
+      "probabilities": {
+        "human": 0.1,
+        "chatGPT": 0.6,
+        "cohere": 0.1,
+        "davinci": 0.1,
+        "bloomz": 0.05,
+        "dolly": 0.05
+      }
+    }
+  ],
+  "usage": {
+    "input_tokens": 1466,
+    "output_tokens": 543,
+    "total_tokens": 2009
+  }
+}

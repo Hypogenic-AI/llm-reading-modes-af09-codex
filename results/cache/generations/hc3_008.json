@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "A premature ventricular contraction (PVC) is a type of irregular heartbeat where the ventricles of the heart contract earlier than they should. Instead of the heartbeat being initiated by the sinoatrial node, which is the heart\u2019s natural pacemaker, the contraction starts in the ventricles, often due to impulses from Purkinje fibers. This early contraction means the ventricles may not be fully filled with blood, resulting in less efficient circulation. PVCs are relatively common and are sometimes referred to as ventricular premature complexes, ventricular extrasystoles, or ventricular premature beats.",
+    "llm_humanized": "So, a PVC, or premature ventricular contraction, is basically when your heart\u2019s lower chambers, the ventricles, jump the gun and contract before they\u2019re supposed to. Normally, the heartbeat starts in the sinoatrial node, but with a PVC, it starts in the ventricles themselves, usually because of these Purkinje fibers. Since the ventricles contract too soon, they don\u2019t have as much blood to pump out, so your circulation isn\u2019t as efficient for that beat. It\u2019s actually a pretty common thing and goes by a few different names, like ventricular extrasystole or ventricular premature beat.",
+    "human_polished": "A premature ventricular contraction (PVC), also called a premature ventricular complex, ventricular premature contraction (VPC), ventricular premature beat (VPB), or ventricular extrasystole (VES), is a relatively common event in which the heartbeat is initiated by Purkinje fibers in the ventricles instead of the sinoatrial node, which is the heart\u2019s normal pacemaker. In a PVC, the ventricles contract before the atria have had a chance to optimally fill them with blood, resulting in less efficient circulation.",
+    "dictated_spoken": "Yeah, so a premature ventricular contraction, or PVC, sometimes called a VPC or ventricular extrasystole, is when the heartbeat actually starts in the ventricles, not in the usual spot, the sinoatrial node. What happens is the Purkinje fibers in the ventricles trigger a beat early, so the ventricles contract before the atria have really filled them up with blood. That means the heart\u2019s not pumping as efficiently for that beat. It\u2019s actually pretty common."
+  },
+  "usage": {
+    "input_tokens": 311,
+    "output_tokens": 470,
+    "total_tokens": 781
+  },
+  "anchor_id": "hc3_008"
+}

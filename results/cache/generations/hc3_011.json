@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "The federal death tax, officially known as the estate tax, is a tax levied by the United States government on the transfer of a deceased person's taxable estate. This tax applies to the value of the estate transferred to heirs or beneficiaries, whether through a will, state intestacy laws, trusts, or other means, and can also include certain life insurance payouts or financial accounts distributed upon the owner's death.",
+    "llm_humanized": "So, the federal death tax\u2014more formally called the estate tax\u2014is basically a tax the U.S. government charges when someone passes away and their assets get transferred to their heirs. It covers things like property, money, or even life insurance payouts, whether those are passed on through a will, a trust, or just by default if there\u2019s no will.",
+    "human_polished": "The estate tax in the United States is a tax imposed on the transfer of a deceased person's taxable estate. This applies whether the property is transferred through a will, according to state intestacy laws, or by other means, such as trusts or the payment of certain life insurance benefits or financial accounts to beneficiaries.",
+    "dictated_spoken": "Yeah so the federal death tax, or estate tax, is basically a tax that gets charged when someone dies and their stuff gets passed on to other people. It doesn\u2019t really matter if it\u2019s through a will or if there\u2019s no will and the state decides, or even if it\u2019s from a trust or life insurance payout\u2014if it\u2019s part of the person\u2019s estate, it can be taxed."
+  },
+  "usage": {
+    "input_tokens": 289,
+    "output_tokens": 328,
+    "total_tokens": 617
+  },
+  "anchor_id": "hc3_011"
+}

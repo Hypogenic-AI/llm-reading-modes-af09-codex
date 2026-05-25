@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "The United States is a federal republic composed of fifty states and a federal district, Washington, D.C. The majority of its landmass is located in central North America, bordered by Canada to the north and Mexico to the south. Alaska lies to the northwest of the contiguous states, separated by Canada, while Hawaii is situated in the central Pacific Ocean. Additionally, the United States governs several territories in the Pacific and Caribbean, some of which are populated and others unpopulated.",
+    "llm_humanized": "The United States is made up of fifty states and a federal district, which is Washington, D.C. Most of the country is in central North America, between Canada and Mexico, but there are also states like Alaska, which is up by Canada and near Russia, and Hawaii, which is out in the Pacific. Besides that, the U.S. has a handful of territories in the Pacific and Caribbean\u2014some people live there, some are uninhabited.",
+    "human_polished": "The United States of America (USA or U.S.A.), often referred to as the United States (US or U.S.) or simply America, is a federal republic made up of fifty states and a federal district. The forty-eight contiguous states and the federal district of Washington, D.C. are located in central North America, between Canada and Mexico. Alaska is situated to the west of Canada and east of Russia, across the Bering Strait, while Hawaii is located in the mid-North Pacific. The country also includes five populated and nine unpopulated territories in the Pacific and the Caribbean.",
+    "dictated_spoken": "So, the United States, or America, is basically a federal republic with fifty states and a federal district, that's Washington, D.C. Most of the states are all together in central North America, between Canada and Mexico. Then you've got Alaska, which is over to the west of Canada and actually pretty close to Russia across the Bering Strait, and Hawaii, which is way out in the middle of the North Pacific. Plus, the U.S. has a few territories in the Pacific and the Caribbean\u2014some have people living there, some don't."
+  },
+  "usage": {
+    "input_tokens": 317,
+    "output_tokens": 452,
+    "total_tokens": 769
+  },
+  "anchor_id": "hc3_014"
+}

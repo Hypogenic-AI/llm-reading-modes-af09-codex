@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "As of July 31, 2016, approximately 8.7% of the global economy is considered to be 'emerging markets,' according to data provided by Vanguard. This percentage reflects the portion of investments allocated to emerging markets within their global fund. It's important to note that these figures can fluctuate daily based on market activity and portfolio adjustments.",
+    "llm_humanized": "Vanguard reports that, as of July 31, 2016, about 8.7% of their global fund is invested in emerging markets. This number can change from day to day, depending on how the markets move and how the fund managers adjust their holdings.",
+    "human_polished": "According to Vanguard, the company managing the fund, their website provides a general breakdown of the fund's investments. As of July 31, 2016, 8.7% of the fund was allocated to emerging markets. They even list the more than 7,000 companies in which they hold stocks. Of course, the actual investments and percentages can change daily. Vanguard typically publishes detailed holdings on their website after the end of each calendar quarter, with specific timing depending on the type of fund. However, they may withhold some information if deemed in the best interest of the fund.",
+    "dictated_spoken": "So, if you check Vanguard\u2019s website, they actually break down the investments for that fund, and as of July 31st, 2016, it was 8.7 percent in emerging markets. They even list all the companies\u2014over 7,000\u2014that they\u2019ve bought stocks in. But, you know, those numbers can change every day. Vanguard usually posts the fund\u2019s holdings on their site after each quarter, but the timing depends on the fund, and sometimes they might not show everything if they think it\u2019s best for the fund."
+  },
+  "usage": {
+    "input_tokens": 449,
+    "output_tokens": 390,
+    "total_tokens": 839
+  },
+  "anchor_id": "hc3_025"
+}

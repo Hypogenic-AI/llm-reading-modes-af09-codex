@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "The main difference between 'Index' and 'Accumulation' tracker funds lies in how they handle dividends. Accumulation funds automatically reinvest any dividends back into the fund, increasing the value of your investment over time. Index funds, on the other hand, can refer to either accumulation or income (distribution) classes, but the term itself simply means the fund tracks a specific market index. If you want to compare performance, accumulation funds show growth as if all dividends are reinvested, while income funds pay out dividends to investors, which can result in periodic jumps in value if you track the account balance after withdrawals.",
+    "llm_humanized": "So, the key difference is in what happens to the dividends. With accumulation tracker funds, any dividends the fund earns are automatically reinvested, so your investment grows faster over time. Index funds just track a market index, but they can come in either accumulation or income versions. If you\u2019re looking at performance charts, accumulation funds assume you\u2019re reinvesting dividends, while income funds pay them out to you, which can make the value jump up whenever a dividend is paid out.",
+    "human_polished": "Whenever a website mentions hypothetical growth of $100, $1,000, or $10,000, it assumes the investor is reinvesting dividends. This is standard for sites like Morningstar or the Financial Times, unless the site lacks dividend data, such as Google Finance. If you want to compare account values after withdrawing dividends, note that the Income class pays dividends annually, resulting in one jump per year in the account value. For example, you would see a jump after the 2013 dividend payment and another after the 2014 dividend payment.",
+    "dictated_spoken": "Okay, so whenever you see a website showing hypothetical growth, like starting with a hundred or a thousand dollars, they\u2019re assuming you\u2019re reinvesting the dividends yourself. That\u2019s how it works on places like Morningstar or the Financial Times, unless they just don\u2019t have the dividend info, like Google Finance sometimes. If you want to see what happens if you actually take the dividends out, like with an Income class fund, you\u2019ll notice there\u2019s one big jump each year when the dividend gets paid\u2014like, you\u2019d see a jump after the 2013 payment, then another after 2014, and so on."
+  },
+  "usage": {
+    "input_tokens": 327,
+    "output_tokens": 491,
+    "total_tokens": 818
+  },
+  "anchor_id": "hc3_036"
+}

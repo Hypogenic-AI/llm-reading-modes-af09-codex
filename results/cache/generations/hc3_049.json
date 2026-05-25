@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "I'm sorry to hear you're experiencing discomfort from your dissolvable sutures after your bone graft. While you wait for your dental appointment, you can try gently rinsing your mouth with warm salt water several times a day to keep the area clean and soothe irritation. Using a soft, wet gauze pad placed over the suture area may help reduce discomfort, especially after meals. Avoid touching or picking at the sutures, and stick to soft foods to minimize irritation. If you notice any signs of infection, such as increased redness, swelling, or pus, contact your dentist promptly. Otherwise, your dentist will be able to trim or remove any bothersome suture material at your upcoming visit.",
+    "llm_humanized": "That sounds really uncomfortable\u2014sorry you\u2019re dealing with that! Since your appointment is coming up soon, the main thing is to keep the area clean and try to minimize irritation. You could gently rinse with warm salt water a few times a day, and placing a damp, soft gauze pad over the spot might help, especially after eating. Try not to mess with the sutures, and stick to softer foods for now. If you notice anything like swelling, pus, or a lot more pain, definitely call your dentist sooner. Otherwise, they should be able to take care of the extra suture when you see them next week.",
+    "human_polished": "Hello! Thank you for your question. The discomfort you're experiencing is likely due to the sutures rather than the bone graft itself. To help relieve this, you can use a sterile, wet gauze and gently place it over the area where the suture is causing irritation, changing the gauze regularly and after each meal. Be sure to rinse your mouth after every meal and snack to keep the area clean. Your dentist will be able to remove any excess suture material at your next visit, and it's best to see them as soon as possible to prevent infection. If you notice any ulceration, you can apply a soothing ointment like quadragel to the area. I hope this helps.",
+    "dictated_spoken": "Hi there, thanks for posting your question. So, the discomfort you\u2019re feeling isn\u2019t really from the bone graft itself, it\u2019s more likely from the sutures. What you can do is take a piece of sterile gauze, wet it, and keep it on the area where the suture is poking out. Change the gauze every so often, especially after you eat. Also, make sure to rinse your mouth after every meal and snack. Your dentist will be able to trim or remove the extra suture material when you see them, and it\u2019s a good idea to go in as soon as you can so it doesn\u2019t get infected. If you notice any ulcers, you can try putting a soothing ointment like quadragel on the spot. Hope that helps."
+  },
+  "usage": {
+    "input_tokens": 406,
+    "output_tokens": 597,
+    "total_tokens": 1003
+  },
+  "anchor_id": "hc3_049"
+}

@@ -1,0 +1,651 @@
+{
+  "config": {
+    "seed": 42,
+    "custom_sample_size": 60,
+    "semeval_per_class": 30,
+    "generation_model": "gpt-4.1",
+    "classifier_model": "gpt-4.1",
+    "embedding_model": "text-embedding-3-large",
+    "max_generation_retries": 5,
+    "max_classification_retries": 5,
+    "bootstrap_iterations": 200,
+    "permutation_iterations": 3,
+    "group_folds": 5,
+    "mode_temperature": 0.0,
+    "batch_size_custom": 8,
+    "batch_size_semeval": 6
+  },
+  "environment": {
+    "python": "3.12.8 (main, Dec 19 2024, 14:33:20) [Clang 18.1.8 ]",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "seaborn": "0.13.2",
+    "statsmodels": "0.14.6",
+    "openai": "2.38.0"
+  },
+  "gpu": {
+    "detected": true,
+    "model": "NVIDIA RTX A6000",
+    "memory_total_mib": 49140,
+    "memory_free_mib": 48541,
+    "count": 4,
+    "used_for_training": false,
+    "notes": "This run used API-based LLM evaluation and CPU-based local analysis; GPUs were available but not required."
+  },
+  "data_quality": {
+    "hc3_candidates": 3261,
+    "anchors_sampled": 60,
+    "custom_rows": 360,
+    "custom_mode_counts": {
+      "human_original": 60,
+      "llm_generated": 60,
+      "llm_humanized": 60,
+      "human_polished": 60,
+      "dictated_spoken": 60,
+      "keyboard_noisy": 60
+    },
+    "custom_domain_counts": {
+      "finance": 20,
+      "medicine": 20,
+      "open_qa": 20
+    },
+    "word_count_by_mode": {
+      "mean": {
+        "dictated_spoken": 108.42,
+        "human_original": 111.62,
+        "human_polished": 102.53,
+        "keyboard_noisy": 110.62,
+        "llm_generated": 97.95,
+        "llm_humanized": 95.23
+      },
+      "std": {
+        "dictated_spoken": 39.34,
+        "human_original": 56.21,
+        "human_polished": 33.3,
+        "keyboard_noisy": 56.66,
+        "llm_generated": 27.86,
+        "llm_humanized": 28.8
+      },
+      "min": {
+        "dictated_spoken": 54,
+        "human_original": 60,
+        "human_polished": 55,
+        "keyboard_noisy": 57,
+        "llm_generated": 28,
+        "llm_humanized": 28
+      },
+      "max": {
+        "dictated_spoken": 198,
+        "human_original": 250,
+        "human_polished": 169,
+        "keyboard_noisy": 250,
+        "llm_generated": 154,
+        "llm_humanized": 154
+      }
+    },
+    "missing_values_custom": {
+      "id": 0,
+      "anchor_id": 0,
+      "domain": 0,
+      "question": 0,
+      "mode": 0,
+      "text": 0,
+      "word_count": 0,
+      "char_count": 0
+    }
+  },
+  "usage": {
+    "generation": {
+      "input_tokens": 22653,
+      "output_tokens": 31901,
+      "total_tokens": 54554
+    },
+    "custom_classification": {
+      "input_tokens": 58457,
+      "output_tokens": 38175,
+      "total_tokens": 96632
+    },
+    "embedding": {},
+    "semeval_classification": {
+      "input_tokens": 60718,
+      "output_tokens": 15738,
+      "total_tokens": 76456
+    }
+  },
+  "custom_mode_llm": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "report": {
+      "human_original": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "llm_generated": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "llm_humanized": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "human_polished": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "dictated_spoken": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "keyboard_noisy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 360.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 360.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        60,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        60,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        60,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        60,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        60
+      ]
+    ],
+    "nll": 0.25603752933069907,
+    "brier": 0.0706101388888889,
+    "accuracy_ci": [
+      1.0,
+      1.0
+    ],
+    "macro_f1_ci": [
+      1.0,
+      1.0
+    ]
+  },
+  "stylometric_baseline": {
+    "accuracy": 0.4,
+    "macro_f1": 0.38639550264550265,
+    "report": {
+      "human_original": {
+        "precision": 0.3125,
+        "recall": 0.25,
+        "f1-score": 0.2777777777777778,
+        "support": 60.0
+      },
+      "llm_generated": {
+        "precision": 0.4777777777777778,
+        "recall": 0.7166666666666667,
+        "f1-score": 0.5733333333333334,
+        "support": 60.0
+      },
+      "llm_humanized": {
+        "precision": 0.325,
+        "recall": 0.43333333333333335,
+        "f1-score": 0.37142857142857144,
+        "support": 60.0
+      },
+      "human_polished": {
+        "precision": 0.65,
+        "recall": 0.21666666666666667,
+        "f1-score": 0.325,
+        "support": 60.0
+      },
+      "dictated_spoken": {
+        "precision": 0.4117647058823529,
+        "recall": 0.4666666666666667,
+        "f1-score": 0.4375,
+        "support": 60.0
+      },
+      "keyboard_noisy": {
+        "precision": 0.35185185185185186,
+        "recall": 0.31666666666666665,
+        "f1-score": 0.3333333333333333,
+        "support": 60.0
+      },
+      "accuracy": 0.4,
+      "macro avg": {
+        "precision": 0.42148238925199716,
+        "recall": 0.4000000000000001,
+        "f1-score": 0.38639550264550265,
+        "support": 360.0
+      },
+      "weighted avg": {
+        "precision": 0.4214823892519971,
+        "recall": 0.4,
+        "f1-score": 0.3863955026455026,
+        "support": 360.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        15,
+        11,
+        10,
+        2,
+        8,
+        14
+      ],
+      [
+        7,
+        43,
+        4,
+        1,
+        1,
+        4
+      ],
+      [
+        2,
+        6,
+        26,
+        2,
+        20,
+        4
+      ],
+      [
+        9,
+        18,
+        9,
+        13,
+        3,
+        8
+      ],
+      [
+        4,
+        3,
+        20,
+        0,
+        28,
+        5
+      ],
+      [
+        11,
+        9,
+        11,
+        2,
+        8,
+        19
+      ]
+    ],
+    "nll": 2.5796168360403007,
+    "brier": 1.026219489696684
+  },
+  "embedding_probe": {
+    "accuracy": 0.4888888888888889,
+    "macro_f1": 0.4770278106511748,
+    "report": {
+      "human_original": {
+        "precision": 0.39473684210526316,
+        "recall": 0.25,
+        "f1-score": 0.30612244897959184,
+        "support": 60.0
+      },
+      "llm_generated": {
+        "precision": 0.37373737373737376,
+        "recall": 0.6166666666666667,
+        "f1-score": 0.46540880503144655,
+        "support": 60.0
+      },
+      "llm_humanized": {
+        "precision": 0.5862068965517241,
+        "recall": 0.5666666666666667,
+        "f1-score": 0.576271186440678,
+        "support": 60.0
+      },
+      "human_polished": {
+        "precision": 0.3684210526315789,
+        "recall": 0.23333333333333334,
+        "f1-score": 0.2857142857142857,
+        "support": 60.0
+      },
+      "dictated_spoken": {
+        "precision": 0.6363636363636364,
+        "recall": 0.7,
+        "f1-score": 0.6666666666666666,
+        "support": 60.0
+      },
+      "keyboard_noisy": {
+        "precision": 0.5573770491803278,
+        "recall": 0.5666666666666667,
+        "f1-score": 0.5619834710743802,
+        "support": 60.0
+      },
+      "accuracy": 0.4888888888888889,
+      "macro avg": {
+        "precision": 0.48614047509498404,
+        "recall": 0.48888888888888893,
+        "f1-score": 0.4770278106511748,
+        "support": 360.0
+      },
+      "weighted avg": {
+        "precision": 0.486140475094984,
+        "recall": 0.4888888888888889,
+        "f1-score": 0.4770278106511748,
+        "support": 360.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        15,
+        17,
+        0,
+        8,
+        3,
+        17
+      ],
+      [
+        4,
+        37,
+        7,
+        11,
+        0,
+        1
+      ],
+      [
+        0,
+        6,
+        34,
+        2,
+        18,
+        0
+      ],
+      [
+        7,
+        27,
+        3,
+        14,
+        1,
+        8
+      ],
+      [
+        1,
+        2,
+        14,
+        0,
+        42,
+        1
+      ],
+      [
+        11,
+        10,
+        0,
+        3,
+        2,
+        34
+      ]
+    ],
+    "nll": 7.561040067394101,
+    "brier": 1.4813361376009921,
+    "permutation_p": 0.047619047619047616,
+    "permutation_scores": [
+      0.1638888888888889,
+      0.19444444444444445,
+      0.16111111111111112,
+      0.1527777777777778,
+      0.1638888888888889,
+      0.14444444444444443,
+      0.14166666666666666,
+      0.17222222222222222,
+      0.19444444444444445,
+      0.15,
+      0.17222222222222222,
+      0.14444444444444443,
+      0.16666666666666666,
+      0.16111111111111112,
+      0.1388888888888889,
+      0.20277777777777778,
+      0.16111111111111112,
+      0.1638888888888889,
+      0.15,
+      0.15833333333333333
+    ]
+  },
+  "llm_vs_stylometric_bootstrap": {
+    "accuracy_delta_mean": 0.6023055555555555,
+    "accuracy_delta_ci": [
+      0.5554861111111111,
+      0.6500694444444445
+    ],
+    "macro_f1_delta_mean": 0.6176890436837037,
+    "macro_f1_delta_ci": [
+      0.5726727906304087,
+      0.6649447124347259
+    ],
+    "accuracy_delta_p_two_sided": 0.0,
+    "macro_f1_delta_p_two_sided": 0.0
+  },
+  "semeval_subtaskB_llm": {
+    "accuracy": 0.25555555555555554,
+    "macro_f1": 0.13613377224369066,
+    "report": {
+      "human": {
+        "precision": 0.4027777777777778,
+        "recall": 0.9666666666666667,
+        "f1-score": 0.5686274509803921,
+        "support": 30.0
+      },
+      "chatGPT": {
+        "precision": 0.1588785046728972,
+        "recall": 0.5666666666666667,
+        "f1-score": 0.24817518248175183,
+        "support": 30.0
+      },
+      "cohere": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 30.0
+      },
+      "davinci": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 30.0
+      },
+      "bloomz": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 30.0
+      },
+      "dolly": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 30.0
+      },
+      "accuracy": 0.25555555555555554,
+      "macro avg": {
+        "precision": 0.09360938040844584,
+        "recall": 0.25555555555555554,
+        "f1-score": 0.13613377224369066,
+        "support": 180.0
+      },
+      "weighted avg": {
+        "precision": 0.09360938040844582,
+        "recall": 0.25555555555555554,
+        "f1-score": 0.13613377224369066,
+        "support": 180.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        29,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        13,
+        17,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        5,
+        25,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        28,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        12,
+        18,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        11,
+        18,
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "nll": 2.1002479293775926,
+    "brier": 0.9804316666666665,
+    "accuracy_ci": [
+      0.19444444444444445,
+      0.31125
+    ],
+    "macro_f1_ci": [
+      0.10783608706213263,
+      0.16386355319110324
+    ]
+  },
+  "delta_similarity": [
+    {
+      "mode": "llm_generated",
+      "test": "mann_whitney_u",
+      "statistic": 260660.0,
+      "p_value_raw": 5.334828718821428e-09,
+      "within_mean": 0.03557492249874911,
+      "between_mean": 0.01414178337364528,
+      "p_value_bh": 6.668535898526785e-09
+    },
+    {
+      "mode": "llm_humanized",
+      "test": "mann_whitney_u",
+      "statistic": 273374.0,
+      "p_value_raw": 2.476349184468662e-13,
+      "within_mean": 0.05816460232033663,
+      "between_mean": 0.034268178811953515,
+      "p_value_bh": 4.1272486407811037e-13
+    },
+    {
+      "mode": "human_polished",
+      "test": "mann_whitney_u",
+      "statistic": 233382.0,
+      "p_value_raw": 0.006446135954510038,
+      "within_mean": 0.028585998227236772,
+      "between_mean": 0.021310865131648045,
+      "p_value_bh": 0.006446135954510037
+    },
+    {
+      "mode": "dictated_spoken",
+      "test": "mann_whitney_u",
+      "statistic": 351493.0,
+      "p_value_raw": 2.34101865369048e-61,
+      "within_mean": 0.09374784614097365,
+      "between_mean": 0.02734289213196722,
+      "p_value_bh": 5.8525466342262e-61
+    },
+    {
+      "mode": "keyboard_noisy",
+      "test": "mann_whitney_u",
+      "statistic": 410910.0,
+      "p_value_raw": 1.0699322004150005e-122,
+      "within_mean": 0.11103641652806891,
+      "between_mean": -0.01530416103241628,
+      "p_value_bh": 5.349661002075003e-122
+    }
+  ],
+  "execution": {
+    "started_unix": 1779683459.935839,
+    "finished_unix": 1779683793.016484,
+    "elapsed_seconds": 333.0806453227997
+  }
+}

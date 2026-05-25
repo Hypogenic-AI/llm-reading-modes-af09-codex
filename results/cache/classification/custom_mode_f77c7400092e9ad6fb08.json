@@ -1,0 +1,105 @@
+{
+  "predictions": [
+    {
+      "id": "hc3_054::dictated_spoken",
+      "predicted_label": "dictated_spoken",
+      "probabilities": {
+        "human_original": 0.01,
+        "llm_generated": 0.01,
+        "llm_humanized": 0.02,
+        "human_polished": 0.01,
+        "dictated_spoken": 0.94,
+        "keyboard_noisy": 0.01
+      }
+    },
+    {
+      "id": "hc3_054::keyboard_noisy",
+      "predicted_label": "keyboard_noisy",
+      "probabilities": {
+        "human_original": 0.01,
+        "llm_generated": 0.01,
+        "llm_humanized": 0.01,
+        "human_polished": 0.01,
+        "dictated_spoken": 0.01,
+        "keyboard_noisy": 0.95
+      }
+    },
+    {
+      "id": "hc3_055::human_original",
+      "predicted_label": "human_original",
+      "probabilities": {
+        "human_original": 0.93,
+        "llm_generated": 0.01,
+        "llm_humanized": 0.01,
+        "human_polished": 0.03,
+        "dictated_spoken": 0.01,
+        "keyboard_noisy": 0.01
+      }
+    },
+    {
+      "id": "hc3_055::llm_generated",
+      "predicted_label": "llm_generated",
+      "probabilities": {
+        "human_original": 0.01,
+        "llm_generated": 0.93,
+        "llm_humanized": 0.04,
+        "human_polished": 0.01,
+        "dictated_spoken": 0.005,
+        "keyboard_noisy": 0.005
+      }
+    },
+    {
+      "id": "hc3_055::llm_humanized",
+      "predicted_label": "llm_humanized",
+      "probabilities": {
+        "human_original": 0.01,
+        "llm_generated": 0.04,
+        "llm_humanized": 0.92,
+        "human_polished": 0.01,
+        "dictated_spoken": 0.01,
+        "keyboard_noisy": 0.01
+      }
+    },
+    {
+      "id": "hc3_055::human_polished",
+      "predicted_label": "human_polished",
+      "probabilities": {
+        "human_original": 0.03,
+        "llm_generated": 0.01,
+        "llm_humanized": 0.01,
+        "human_polished": 0.93,
+        "dictated_spoken": 0.01,
+        "keyboard_noisy": 0.01
+      }
+    },
+    {
+      "id": "hc3_055::dictated_spoken",
+      "predicted_label": "dictated_spoken",
+      "probabilities": {
+        "human_original": 0.01,
+        "llm_generated": 0.01,
+        "llm_humanized": 0.01,
+        "human_polished": 0.01,
+        "dictated_spoken": 0.95,
+        "keyboard_noisy": 0.01
+      }
+    },
+    {
+      "id": "hc3_055::keyboard_noisy",
+      "predicted_label": "keyboard_noisy",
+      "probabilities": {
+        "human_original": 0.01,
+        "llm_generated": 0.01,
+        "llm_humanized": 0.01,
+        "human_polished": 0.01,
+        "dictated_spoken": 0.01,
+        "keyboard_noisy": 0.95
+      }
+    }
+  ],
+  "usage": {
+    "input_tokens": 1887,
+    "output_tokens": 849,
+    "total_tokens": 2736
+  }
+}

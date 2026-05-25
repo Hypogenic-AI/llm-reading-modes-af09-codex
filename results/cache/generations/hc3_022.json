@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Swiss-style monetary policy traditionally refers to the practices of the Swiss National Bank (SNB), which has historically emphasized monetary stability, low inflation, and a strong currency. However, in recent years, Swiss monetary policy has closely mirrored the approaches of other major central banks, such as the US Federal Reserve, the Bank of Japan, and the European Central Bank, by implementing expansive measures like quantitative easing and low or even negative interest rates. This has led to a significant increase in the supply of Swiss francs, raising questions about the distinctiveness and effectiveness of the so-called 'Swiss-style' approach in the current global context.",
+    "llm_humanized": "When people talk about 'Swiss-style monetary policy,' they usually mean the Swiss National Bank\u2019s focus on stability and keeping inflation low. But honestly, lately it\u2019s looked a lot like what the US, Japan, and Europe are doing\u2014printing more money and keeping rates super low, even negative at times. So, if you check how many Swiss francs you need to buy something like gold, which can\u2019t just be printed, you\u2019ll see the franc isn\u2019t as strong as it used to be. I\u2019m not sure why anyone would brag about Swiss monetary policy these days; it hasn\u2019t exactly been impressive.",
+    "human_polished": "I'm not entirely sure what is traditionally meant by 'Swiss-style monetary policy,' but in recent years, it has essentially mirrored the monetary policies of the US, Japan, and the Eurozone: namely, increasing the money supply. If you look at how many Swiss francs it now takes to buy a currency or asset that cannot be printed, the value has clearly shifted. I don't see why 'Swiss-style monetary policy' would be promoted, as its recent track record hasn't been particularly impressive.",
+    "dictated_spoken": "So, I\u2019m not really sure what people usually mean by Swiss-style monetary policy, but lately, it just seems like it\u2019s the same as what the US or Japan or Europe are doing\u2014just printing more money. If you look at how many Swiss francs you need now to buy something that can\u2019t be printed, like gold or whatever, it\u2019s gone up. I don\u2019t really get why anyone would be talking up Swiss-style monetary policy right now, because honestly, it hasn\u2019t been that great lately."
+  },
+  "usage": {
+    "input_tokens": 282,
+    "output_tokens": 479,
+    "total_tokens": 761
+  },
+  "anchor_id": "hc3_022"
+}

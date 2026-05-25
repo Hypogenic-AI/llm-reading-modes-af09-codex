@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Taking Postinor (an emergency contraceptive pill) twice within two weeks is not recommended as a regular method of contraception. While it can reduce the risk of pregnancy if taken as directed after unprotected sex, using it multiple times in a short period can disrupt your menstrual cycle, causing irregular bleeding, spotting, or changes in your next period. Other possible side effects include nausea, fatigue, headaches, and breast tenderness. Although the risk of pregnancy is reduced if you took the pills within the recommended time frame, no emergency contraceptive is 100% effective. If your next period is significantly delayed, consider taking a pregnancy test. For ongoing contraception, consult a healthcare provider about more reliable options.",
+    "llm_humanized": "If you take Postinor twice in two weeks, it can mess with your menstrual cycle\u2014things like irregular bleeding or your period coming at odd times are pretty common. You might also feel side effects like nausea or headaches. The good news is, if you took the pills within the right time after sex, your chances of getting pregnant are pretty low, but it\u2019s not a guarantee. If your next period is late, it\u2019s a good idea to take a pregnancy test just to be sure. For the future, it\u2019s better to talk to a doctor about a more regular birth control method, since emergency pills aren\u2019t meant for frequent use.",
+    "human_polished": "Thank you for your question. I understand your concern. The pill you have taken is a hormonal medication, and using it without medical supervision can have several side effects. In my opinion, it should not be used frequently, as it can disrupt your body's natural hormonal balance and menstrual cycle. Taking Postinor twice in two weeks may cause irregular bleeding, changes in your period, or other hormonal disturbances. While it does reduce the risk of pregnancy if taken as directed, it is not 100% effective. I hope this information helps. Have a nice day.",
+    "dictated_spoken": "Hi, thanks for your question. So, the pill you took is a hormone pill, and when you take it without a medical reason, it can have a bunch of side effects. Honestly, I don't think it should be used like that, because it can mess with your body's system. Taking it twice in two weeks could cause irregular bleeding or other changes. Just be aware it\u2019s not totally foolproof for preventing pregnancy either. Hope that helps, have a good day."
+  },
+  "usage": {
+    "input_tokens": 355,
+    "output_tokens": 510,
+    "total_tokens": 865
+  },
+  "anchor_id": "hc3_043"
+}

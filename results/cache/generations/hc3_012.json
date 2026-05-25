@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Dmitri Mendeleev was a Russian chemist and inventor best known for formulating the Periodic Law and creating a version of the periodic table of elements. His work allowed him to correct the properties of some known elements and predict the existence and properties of elements that had not yet been discovered.",
+    "llm_humanized": "Dmitri Mendeleev was this Russian chemist who came up with the Periodic Law and made his own periodic table. What\u2019s really cool is that he used it to fix mistakes in the properties of elements people already knew about, and he even predicted new elements before anyone found them.",
+    "human_polished": "Dmitri Ivanovich Mendeleev (8 February 1834 \u2013 2 February 1907) was a Russian chemist and inventor. He formulated the Periodic Law, created his own version of the periodic table of elements, and used it to correct the properties of some already discovered elements. He also predicted the properties of elements that had not yet been discovered.",
+    "dictated_spoken": "So Dmitri Mendeleev, he was a Russian chemist and inventor, born in 1834 and died in 1907. He came up with the Periodic Law and made his own version of the periodic table of elements. What\u2019s interesting is he used that table to fix the properties of some elements that were already known, and he even predicted what some undiscovered elements would be like."
+  },
+  "usage": {
+    "input_tokens": 299,
+    "output_tokens": 313,
+    "total_tokens": 612
+  },
+  "anchor_id": "hc3_012"
+}

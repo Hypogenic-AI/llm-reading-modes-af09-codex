@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Vitamin B12, also known as cobalamin, is a water-soluble vitamin essential for healthy brain and nervous system function, as well as the formation of red blood cells. It plays a crucial role in the metabolism of every cell in the body, particularly in DNA synthesis, regulation, fatty acid synthesis, and energy production.",
+    "llm_humanized": "Vitamin B12, or cobalamin, is really important for keeping your brain and nerves working properly, and it helps your body make red blood cells. It\u2019s involved in how every cell in your body works, especially when it comes to making and regulating DNA, as well as producing energy and synthesizing fatty acids.",
+    "human_polished": "Vitamin B12, also known as cobalamin, is a water-soluble vitamin that plays a key role in the normal functioning of the brain and nervous system, as well as in the formation of blood. It is involved in the metabolism of every cell in the human body, particularly affecting DNA synthesis and regulation, as well as fatty acid synthesis and energy production.",
+    "dictated_spoken": "So vitamin B12, sometimes called cobalamin, is a water-soluble vitamin that\u2019s really important for your brain and nervous system to work normally, and it also helps make blood. It\u2019s usually involved in how every cell in your body works, especially with things like DNA synthesis and regulation, plus fatty acid synthesis and making energy."
+  },
+  "usage": {
+    "input_tokens": 283,
+    "output_tokens": 305,
+    "total_tokens": 588
+  },
+  "anchor_id": "hc3_001"
+}

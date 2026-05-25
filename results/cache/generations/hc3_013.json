@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Section 8 housing refers to a federal program established under Section 8 of the Housing Act of 1937, which provides rental assistance to low-income households. Through this program, the government pays a portion of the rent directly to private landlords on behalf of eligible families. The largest component of Section 8 is the Housing Choice Voucher program, which helps about 2.1 million households afford safe and decent housing by covering a significant share of their rent and utilities.",
+    "llm_humanized": "Section 8 housing is basically a government program that helps low-income families pay their rent. It started with the Housing Act of 1937, and over the years, it\u2019s been updated a lot. The main part of it now is called the Housing Choice Voucher program, which covers a big chunk of rent and utilities for around 2.1 million households. The government sends this money straight to private landlords, so people who qualify can live in regular rental housing.",
+    "human_polished": "Section 8 of the Housing Act of 1937, commonly known as Section 8, authorizes the federal government to provide rental housing assistance to private landlords on behalf of approximately 3.1 million low-income households. The program operates through several initiatives, the largest being the Housing Choice Voucher program, which covers a significant portion of rent and utilities for about 2.1 million households.",
+    "dictated_spoken": "So Section 8 housing, that comes from the Housing Act of 1937, and people usually just call it Section 8. Basically, it lets the government pay rental assistance to private landlords for about 3.1 million low-income households. There are a few different programs under Section 8, but the biggest one is the Housing Choice Voucher program, which pays a big part of the rent and utilities for around 2.1 million households."
+  },
+  "usage": {
+    "input_tokens": 285,
+    "output_tokens": 391,
+    "total_tokens": 676
+  },
+  "anchor_id": "hc3_013"
+}

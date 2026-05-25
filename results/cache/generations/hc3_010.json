@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Single malt Scotch is produced in Scotland at a single distillery using only malted barley as the grain ingredient. The whisky is distilled in traditional pot stills and must be matured in oak casks in Scotland for a minimum of three years, although many single malts are aged for longer periods to develop more complex flavors.",
+    "llm_humanized": "So, single malt Scotch is basically whisky made at just one distillery in Scotland, and they only use malted barley for the grain. They distill it in pot stills, and then it has to age in oak barrels in Scotland for at least three years\u2014though honestly, most single malts sit in the cask for much longer to get those deeper flavors.",
+    "human_polished": "Single Malt Scotch is a type of whisky made in Scotland at a single distillery, using only malted barley as the grain ingredient and distilled in pot stills. Like all Scotch whisky, it must be distilled and matured in Scotland, spending at least three years aging in oak casks\u2014though most single malts are matured for longer periods.",
+    "dictated_spoken": "Yeah so single malt Scotch is whisky that\u2019s made at just one distillery in Scotland and they only use malted barley for the grain part. It\u2019s done in pot stills and then it has to be aged in oak casks in Scotland for at least three years, but usually it\u2019s left to mature even longer than that."
+  },
+  "usage": {
+    "input_tokens": 274,
+    "output_tokens": 309,
+    "total_tokens": 583
+  },
+  "anchor_id": "hc3_010"
+}

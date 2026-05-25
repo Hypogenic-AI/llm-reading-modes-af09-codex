@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "It is possible that the lump under your left armpit is another boil, especially given your previous experience and the symptoms you describe, such as pain, pus, and odor. Boils are infections of hair follicles or sweat glands and can recur. I recommend seeking evaluation from a healthcare provider, preferably a surgeon, who can assess whether antibiotics or drainage is needed. In the meantime, keep the area clean and avoid squeezing it, as this can worsen the infection. Prompt medical attention is important if the pain increases, you develop a fever, or the redness spreads.",
+    "llm_humanized": "Sounds like you might be dealing with another boil under your left armpit, especially since you\u2019ve had one before and the symptoms are similar\u2014pain, pus, and a bad smell. Boils can definitely come back in the same or different spots. I\u2019d suggest seeing a doctor or surgeon soon so they can check if you need antibiotics or if it needs to be drained again. Try not to squeeze it, since that can make things worse. If you notice more pain, fever, or spreading redness, get medical help right away.",
+    "human_polished": "Hello, thank you for your question. Based on your description, it does sound like you may have another boil under your left armpit. My advice would be to consult a surgeon for an evaluation. Under their care, you may need NSAIDs and antibiotics to help reduce the infection and promote healing. If the lump does not improve, it may need to be drained by a healthcare professional, as was done previously. I hope this helps address your concern. Please feel free to reach out with any further questions about this or other health issues.",
+    "dictated_spoken": "Hi there, thanks for reaching out with your question. So, from what you\u2019re describing, it really does sound like you\u2019ve got another boil under your left armpit. What I\u2019d suggest is getting a surgeon\u2019s opinion\u2014sometimes they\u2019ll recommend some anti-inflammatory meds and antibiotics to help clear it up. But if it doesn\u2019t get better, you might need to have it drained, just like last time. Try not to squeeze it yourself. If you have more questions or if things get worse, don\u2019t hesitate to get checked out again."
+  },
+  "usage": {
+    "input_tokens": 383,
+    "output_tokens": 475,
+    "total_tokens": 858
+  },
+  "anchor_id": "hc3_056"
+}

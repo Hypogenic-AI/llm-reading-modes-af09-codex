@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Atherosclerotic heart disease is a condition in which the arteries that supply blood to the heart become narrowed and hardened due to the buildup of fatty deposits, such as cholesterol and triglycerides, on their inner walls. This process, known as atherosclerosis, leads to chronic inflammation and the formation of plaques, which can restrict blood flow and increase the risk of heart attacks and other cardiovascular complications.",
+    "llm_humanized": "So, atherosclerotic heart disease basically happens when the arteries that feed your heart get clogged up with fatty stuff like cholesterol. Over time, these buildups, or plaques, make the artery walls thicker and less flexible, which can slow down or block blood flow. That\u2019s what people mean when they talk about 'hardening of the arteries,' and it\u2019s a big reason for heart problems like heart attacks.",
+    "human_polished": "Atherosclerosis, also known as arteriosclerotic vascular disease (ASVD), is a condition where the walls of arteries thicken due to the accumulation of fatty materials such as cholesterol and triglycerides. This syndrome affects arterial blood vessels and is characterized by a chronic inflammatory response in the artery walls, mainly caused by the buildup of macrophage white blood cells. This process is promoted by low-density lipoproteins (LDL), which carry cholesterol and triglycerides, especially when there is insufficient removal of fats and cholesterol by high-density lipoproteins (HDL). Commonly referred to as 'hardening' or 'furring' of the arteries, atherosclerosis is caused by the formation of multiple plaques within the arteries.",
+    "dictated_spoken": "Okay so atherosclerosis, sometimes called arteriosclerotic vascular disease or ASVD, is when the walls of your arteries get thicker because fatty stuff like cholesterol and triglycerides builds up there. It\u2019s a syndrome that affects your blood vessels, and it\u2019s basically a long-term inflammation in the artery walls. That happens mostly because white blood cells called macrophages pile up, and it gets worse if there\u2019s too much LDL, that\u2019s the bad cholesterol, and not enough HDL, which is the good cholesterol that helps clear out fats. People often call it hardening or furring of the arteries, and it\u2019s really about these plaques forming inside the arteries."
+  },
+  "usage": {
+    "input_tokens": 358,
+    "output_tokens": 476,
+    "total_tokens": 834
+  },
+  "anchor_id": "hc3_000"
+}

@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Cymbalta (duloxetine) is often used as an alternative to narcotic painkillers for chronic back pain, especially when surgery is not an option. It can be effective for managing chronic pain and has a lower risk of addiction compared to narcotics. Typically, your doctor would recommend gradually tapering off the narcotic painkiller rather than stopping it abruptly, to minimize withdrawal symptoms. Transitioning to Cymbalta should be done under medical supervision to ensure safety and effectiveness.",
+    "llm_humanized": "Switching from a narcotic painkiller to Cymbalta for back pain is actually pretty common, especially if surgery isn\u2019t an option. Cymbalta can help with chronic pain and doesn\u2019t carry the same addiction risks as narcotics. Usually, doctors suggest slowly reducing the narcotic dose instead of stopping it all at once, just to avoid withdrawal issues. It\u2019s important to make this switch with your doctor\u2019s guidance so everything goes smoothly.",
+    "human_polished": "Hello and welcome to the \u2018Ask A Doctor\u2019 service. I have reviewed your query and here is my advice. Cymbalta, which is the brand name for duloxetine, is quite effective for chronic pain conditions. You can gradually taper off the narcotic painkillers and transition to Cymbalta. Cymbalta is a good alternative and does not have addiction potential. Wishing you good health. Thank you.",
+    "dictated_spoken": "Hi there thanks for your question so Cymbalta which is duloxetine can actually work pretty well for chronic pain like back pain and yeah it\u2019s a good alternative to narcotic painkillers since it doesn\u2019t really have addiction issues usually you\u2019d want to slowly taper off the narcotic instead of stopping it all at once and then switch over to Cymbalta hope that helps and wishing you good health thanks."
+  },
+  "usage": {
+    "input_tokens": 372,
+    "output_tokens": 387,
+    "total_tokens": 759
+  },
+  "anchor_id": "hc3_053"
+}

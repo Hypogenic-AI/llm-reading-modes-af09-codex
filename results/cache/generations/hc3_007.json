@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "George O'Malley, played by T.R. Knight, was written out of Grey's Anatomy at the end of season five. The character died after being hit by a bus while saving a stranger, and his identity was only revealed to his friends and colleagues at the hospital after he was brought in as a John Doe. T.R. Knight left the show due to a breakdown in communication with the show's creator, Shonda Rhimes, dissatisfaction with his character's limited screen time, and his decision to be openly gay. The character's death received mixed reactions from fans and critics.",
+    "llm_humanized": "So, George O'Malley\u2014played by T.R. Knight\u2014was killed off at the end of season five on Grey's Anatomy. He died after being hit by a bus while saving someone, and nobody at the hospital realized it was him at first. T.R. Knight decided to leave the show because he wasn't happy with how little his character was being used, plus there were some communication issues with Shonda Rhimes, and he wanted to be open about being gay. Fans had pretty mixed feelings about how George's story ended.",
+    "human_polished": "In 2007, T.R. Knight's co-star Isaiah Washington (who played Preston Burke) insulted him with a homophobic slur, which led to Washington's contract with Grey's Anatomy being terminated. In 2009, after the fifth season ended, it was confirmed that Knight would not return for the sixth season. Knight explained that his departure was due to a 'breakdown in communication' with showrunner Shonda Rhimes, dissatisfaction with his character's limited screen time, and his decision to be openly gay. The way his character, George O'Malley, was written off the show received mixed feedback.",
+    "dictated_spoken": "Yeah so back in 2007, Isaiah Washington, who played Preston Burke, called T.R. Knight a homophobic slur, and that ended up getting Washington fired from Grey's Anatomy. Then in 2009, after season five, it was announced that Knight wouldn't be coming back for season six. He said it was because there was a breakdown in communication with Shonda Rhimes, plus he wasn't happy with how little his character was on screen, and he wanted to be open about being gay. People had mixed reactions to how George's character was killed off."
+  },
+  "usage": {
+    "input_tokens": 324,
+    "output_tokens": 502,
+    "total_tokens": 826
+  },
+  "anchor_id": "hc3_007"
+}

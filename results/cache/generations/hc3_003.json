@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "When refinancing your current home to fund the down payment on another property, you should consider several factors. First, determine if the equity in your current home is sufficient to provide at least a 20% down payment for the new home, as this can help you avoid private mortgage insurance (PMI). Assess whether taking additional cash out during the refinance will accelerate your savings for the new purchase. You\u2019ll also need to coordinate the timing of selling your current home and purchasing the new one, ideally structuring the purchase contract for the new home to allow you to withdraw if the sale of your existing home falls through. Finally, ensure you understand the financial implications, such as changes in your debt-to-income ratio and the impact on your credit score.",
+    "llm_humanized": "If you\u2019re thinking about refinancing your current home to help with the down payment on a new place, there are a few things to keep in mind. First, check if selling your current home would give you enough equity\u2014ideally at least 20%\u2014for the down payment on the new property, since that can help you avoid PMI. You might also want to consider taking extra cash out during the refinance to speed up your savings. Timing is important too: you\u2019ll need to find your next home while selling your current one, and it\u2019s smart to make sure your new purchase contract lets you back out if your current home sale doesn\u2019t go through. And don\u2019t forget to think about how this will affect your finances overall, like your debt-to-income ratio and credit.",
+    "human_polished": "If you need to upgrade to a larger, long-term home, consider whether selling your current property would provide at least a 20% down payment for the new home. You might also take additional cash out during the refinance of your first home to accelerate your savings. As others have noted, it\u2019s important to coordinate the purchase and sale: you\u2019ll need to find your new home while selling your existing one, and structure the new-home purchase contract so you can withdraw if the sale of your current home falls through.",
+    "dictated_spoken": "So if you\u2019re looking to move up to a bigger place, you want to see if selling your current home would give you at least a 20 percent down payment for the new one. You could also look at taking some extra cash out when you refinance your first home to help save up faster. And yeah, like someone else said, you really have to time it right\u2014you need to find the new house while you\u2019re selling your old one, and make sure your new purchase contract lets you back out if your buyer backs out of your current place."
+  },
+  "usage": {
+    "input_tokens": 333,
+    "output_tokens": 552,
+    "total_tokens": 885
+  },
+  "anchor_id": "hc3_003"
+}

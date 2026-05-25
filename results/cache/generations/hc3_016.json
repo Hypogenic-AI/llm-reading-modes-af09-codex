@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Geoffrey Chaucer was a renowned English author, philosopher, alchemist, and astronomer. He is best known for writing 'The Canterbury Tales,' but he also composed a scientific treatise on the astrolabe for his son. In addition to his literary achievements, Chaucer held various positions in the civil service, working as a bureaucrat, courtier, and diplomat. He played a significant role in establishing Middle English as a legitimate literary language at a time when French and Latin were dominant in England.",
+    "llm_humanized": "Chaucer did quite a lot\u2014he wasn\u2019t just the guy who wrote 'The Canterbury Tales.' He was also an author, philosopher, alchemist, and even dabbled in astronomy, writing a treatise on the astrolabe for his son. On top of that, he worked in the civil service as a bureaucrat, courtier, and diplomat. Importantly, he helped make Middle English a respected language for literature, which was a big deal since French and Latin were the main literary languages back then.",
+    "human_polished": "While Chaucer achieved fame during his lifetime as an author, philosopher, alchemist, and astronomer\u2014including composing a scientific treatise on the astrolabe for his ten-year-old son Lewis\u2014he also maintained an active career in the civil service as a bureaucrat, courtier, and diplomat. Chaucer is a crucial figure in developing the legitimacy of the vernacular, Middle English, at a time when the dominant literary languages in England were French and Latin.",
+    "dictated_spoken": "So, Chaucer did a lot of things\u2014he was famous in his own time as an author, philosopher, alchemist, and even an astronomer. He actually wrote a scientific piece about the astrolabe for his son Lewis, who was ten at the time. Besides all that, he worked in the civil service, you know, as a bureaucrat, courtier, and diplomat. And he\u2019s really important for making Middle English a legitimate language for literature, especially since French and Latin were the main ones used in England back then."
+  },
+  "usage": {
+    "input_tokens": 294,
+    "output_tokens": 446,
+    "total_tokens": 740
+  },
+  "anchor_id": "hc3_016"
+}

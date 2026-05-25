@@ -1,0 +1,900 @@
+You are an academic paper writer. Generate a complete NEURIPS style paper
+based on the experiment results provided.
+
+════════════════════════════════════════════════════════════════════════════════
+                         IMPORTANT: BEFORE YOU START
+════════════════════════════════════════════════════════════════════════════════
+
+Before writing any content, you MUST complete these steps:
+
+1. READ THE SKILL: Review the paper-writer skill at .codex/skills/paper-writer/SKILL.md
+2. READ THE STYLE GUIDE: Study templates/paper_writing/lab_style_guide.md carefully
+3. REVIEW EXAMPLES: Browse paper_examples/ for formatting and language patterns:
+   - Look at sections/1.introduction.tex for language style
+   - Look at tables/*.tex for table formatting
+   - Look at commands/*.tex for macro usage
+4. VERIFY COMMAND TEMPLATES: Command templates (math.tex, general.tex, macros.tex) are pre-copied to paper_draft/commands/
+
+CRITICAL: Reference example papers for FORMATTING and LANGUAGE STYLE only.
+Do NOT copy content, phrasing, or narrative structure from the example papers.
+The examples are in a different research domain - focus only on presentation style.
+
+════════════════════════════════════════════════════════════════════════════════
+                            EXPERIMENT REPORT
+════════════════════════════════════════════════════════════════════════════════
+
+# Modes in LLM Reading
+
+## 1. Executive Summary
+This project tested whether large language models can detect production "modes" in text beyond binary human-vs-AI authorship, and whether mode behaves like a latent variable in LLM-derived representations. Using a controlled six-mode corpus built from HC3 answers and real OpenAI transformations, `gpt-4.1` achieved perfect six-way classification on the custom benchmark, while a grouped stylometric baseline reached `0.400` accuracy and an embedding probe on `text-embedding-3-large` reached `0.489` accuracy on unseen content groups.
+
+The strongest conclusion is not that LLMs can identify exact generator provenance. On an external six-class source-attribution benchmark from SemEval-2024 Task 8 Subtask B, the same `gpt-4.1` setup reached only `0.256` accuracy and mostly collapsed non-human systems into `chatGPT` or `human`. The evidence therefore supports a narrower claim: LLMs are very good at reading broad process modes such as dictated/spoken style, keyboard-noisy text, and LLM-post-edited prose, but much weaker at zero-shot fine-grained generator identity.
+
+Practically, this suggests that mode detection is real and useful for provenance screening, editing-state inference, and ambiguity-aware evaluation, but current zero-shot prompting should not be trusted for source attribution across model families. The latent-variable evidence is promising but partial: mode is represented strongly enough to support grouped probing and stable transformation directions, yet the custom benchmark is easy enough that prompt-induced artifacts and same-family generation effects remain serious threats to validity.
+
+## 2. Research Question & Motivation
+The research question was: what text-production modes can current LLMs detect beyond simple human-vs-LLM authorship, and can "mode" be isolated as a latent variable in LLM interpretation?
+
+This matters because LLMs are increasingly used as readers, judges, and filters. If they infer not only semantic content but also how text was produced, then moderation, educational-integrity tooling, provenance analysis, and downstream trust calibration all depend on understanding those inferences. The main gap in the gathered literature was the lack of a unified, content-controlled benchmark spanning multiple production modes rather than a single binary or attribution task.
+
+## 3. Literature Review Summary
+The local literature review identified four relevant clusters.
+
+1. Binary and source detection.
+   SemEval-2024 Task 8 and related detection work show that human-vs-machine classification and generator attribution are learnable in benchmark settings.
+2. Mixed authorship and process labels.
+   LLM-DetectAIve extends detection into labels such as machine-humanized and human-machine-polished text, directly motivating multi-mode evaluation.
+3. Spoken-to-written conversion.
+   SWAB and related work show that spoken/transcript artifacts are systematic enough for LLM rewriting and evaluation.
+4. Behavioral and missing-mode signals.
+   Keystroke-based work suggests production mode exists even beyond final text, while keyboard-layout and typo-pattern inference remain underexplored in text-only settings.
+
+The main opportunity was a matched-content benchmark that varies mode while holding content roughly fixed, then tests whether mode remains visible to a reader model and to the reader model's embeddings.
+
+## 4. Methodology
+
+### 4.1 Experimental Setup
+- Workspace root: `/workspaces/llm-reading-modes-af09-codex`
+- Python: `3.12.8`
+- Key libraries: `openai 2.38.0`, `scikit-learn 1.8.0`, `scipy 1.17.1`, `pandas 3.0.3`, `matplotlib 3.10.9`, `seaborn 0.13.2`
+- GPU availability: 4 x `NVIDIA RTX A6000` (`49140 MiB` each, detected via `nvidia-smi`)
+- GPU usage: none in the final pipeline because the study used API-based LLMs plus CPU-based statistics
+
+### 4.2 Models and Parameters
+- Generation model: `gpt-4.1`
+- Classification model: `gpt-4.1`
+- Embedding model: `text-embedding-3-large`
+- Temperature: `0.0`
+- Grouped evaluation: 5-fold `GroupKFold` by content anchor
+- Embedding probe: `StandardScaler -> PCA(95% variance) -> OneVsRest(LogisticRegression)`
+- Stylometric baseline: hand-crafted features with the same grouped evaluation protocol
+
+### 4.3 Controlled Six-Mode Corpus
+I sampled 60 HC3 items, balanced across `open_qa`, `finance`, and `medicine` with 20 anchors per domain. Each anchor contributed six matched modes:
+
+- `human_original`
+- `llm_generated`
+- `llm_humanized`
+- `human_polished`
+- `dictated_spoken`
+- `keyboard_noisy`
+
+The first four transformed modes were produced with real `gpt-4.1` calls. `keyboard_noisy` was generated deterministically from the human answer using adjacent-key substitutions, transpositions, and omissions. The final custom dataset had 360 rows with no missing values.
+
+### 4.4 External Validation
+For out-of-distribution validation, I sampled 30 development examples from each SemEval-2024 Task 8 Subtask B class:
+
+- `human`
+- `chatGPT`
+- `cohere`
+- `davinci`
+- `bloomz`
+- `dolly`
+
+Total external validation set size: 180 texts.
+
+### 4.5 Metrics and Statistical Tests
+- Accuracy and macro-F1 for all classification tasks
+- Bootstrap confidence intervals for primary metrics
+- Paired bootstrap comparison between the LLM judge and the stylometric baseline
+- Embedding-probe permutation test against a shuffled-label null
+- Within-mode vs between-mode cosine similarity tests for embedding transformation vectors
+- Benjamini-Hochberg correction across per-mode transformation tests
+
+### 4.6 API Usage
+Recorded non-embedding usage from the final cached run:
+
+| Stage | Input tokens | Output tokens | Total tokens |
+|---|---:|---:|---:|
+| Controlled generation | 22,653 | 31,901 | 54,554 |
+| Custom-mode classification | 58,457 | 38,175 | 96,632 |
+| SemEval classification | 60,718 | 15,738 | 76,456 |
+| Total recorded | 141,828 | 85,814 | 227,642 |
+
+Embedding token usage was not preserved in the cache files and is therefore not reported exactly.
+
+## 5. Results
+
+### 5.1 Custom Six-Mode Classification
+
+| Method | Accuracy | Macro-F1 |
+|---|---:|---:|
+| `gpt-4.1` zero-shot judge | `1.000` | `1.000` |
+| Stylometric baseline | `0.400` | `0.386` |
+| Embedding probe | `0.489` | `0.477` |
+
+Bootstrap confidence intervals for the LLM judge on the custom benchmark:
+
+- Accuracy 95% CI: `[1.000, 1.000]`
+- Macro-F1 95% CI: `[1.000, 1.000]`
+
+Paired bootstrap comparison, LLM judge minus stylometric baseline:
+
+- Accuracy delta mean: `+0.602`
+- Accuracy delta 95% CI: `[+0.555, +0.650]`
+- Macro-F1 delta mean: `+0.618`
+- Macro-F1 delta 95% CI: `[+0.573, +0.665]`
+
+The confusion matrix was perfectly diagonal on the custom benchmark. Representative confidence examples were still moderate rather than saturated, for example:
+
+- `human_original`: `0.85` probability on the correct class
+- `human_polished`: `0.75`
+- `llm_generated`: `0.85`
+- `llm_humanized`: `0.80`
+- `dictated_spoken`: `0.78`
+- `keyboard_noisy`: `0.94`
+
+This pattern suggests that the task was easy for the model but not solved only by outputting extreme probabilities.
+
+### 5.2 Embedding Evidence for a Latent Mode Variable
+The grouped embedding probe predicted mode at `0.489` accuracy on unseen content anchors. Since chance is `1/6 = 0.167`, this is materially above chance. A 20-run corrected permutation test produced null accuracies between `0.139` and `0.203`, with observed accuracy `0.489` and `p = 0.0476`.
+
+Per-class recall in the embedding probe:
+
+| Mode | Recall |
+|---|---:|
+| `dictated_spoken` | `0.700` |
+| `keyboard_noisy` | `0.567` |
+| `llm_humanized` | `0.567` |
+| `llm_generated` | `0.617` |
+| `human_original` | `0.250` |
+| `human_polished` | `0.233` |
+
+This supports the hypothesis that some modes are easier to separate than others. Overt production shifts such as spoken/transcript style and keyboard noise leave clearer latent traces than subtle polishing of human text.
+
+### 5.3 Transformation-Vector Consistency
+For each transformed mode, I measured the cosine similarity of embedding deltas from `human_original` to the transformed version and compared within-mode similarities against between-mode baselines.
+
+| Mode | Within mean | Between mean | BH-adjusted p |
+|---|---:|---:|---:|
+| `keyboard_noisy` | `0.111` | `-0.015` | `< 1e-121` |
+| `dictated_spoken` | `0.094` | `0.027` | `< 1e-60` |
+| `llm_humanized` | `0.058` | `0.034` | `4.13e-13` |
+| `llm_generated` | `0.036` | `0.014` | `6.67e-09` |
+| `human_polished` | `0.029` | `0.021` | `0.0064` |
+
+All five transformed modes showed statistically higher within-mode delta consistency than between-mode similarity. The weakest effect was `human_polished`, which matches the intuition that polishing is a subtler mode shift.
+
+### 5.4 External Validation on SemEval Source Attribution
+
+| Task | Accuracy | Macro-F1 | Chance |
+|---|---:|---:|---:|
+| SemEval Subtask B zero-shot attribution | `0.256` | `0.136` | `0.167` |
+
+Bootstrap confidence intervals:
+
+- Accuracy 95% CI: `[0.194, 0.311]`
+- Macro-F1 95% CI: `[0.108, 0.164]`
+
+The confusion matrix revealed a strong collapse:
+
+- `human`: 29/30 correctly labeled
+- `chatGPT`: 17/30 correctly labeled
+- `cohere`, `davinci`, `bloomz`, `dolly`: almost always mapped to `chatGPT` or `human`
+
+This is the most important negative result in the study. The same model that easily separated broad process modes did not recover fine-grained model identity zero-shot on an external benchmark.
+
+### 5.5 Output Files
+- Main summary: [results/summary.json](/workspaces/llm-reading-modes-af09-codex/results/summary.json)
+- Controlled dataset: [results/custom_mode_dataset.jsonl](/workspaces/llm-reading-modes-af09-codex/results/custom_mode_dataset.jsonl)
+- Controlled predictions: [results/custom_mode_predictions.jsonl](/workspaces/llm-reading-modes-af09-codex/results/custom_mode_predictions.jsonl)
+- SemEval predictions: [results/semeval_subtaskB_predictions.jsonl](/workspaces/llm-reading-modes-af09-codex/results/semeval_subtaskB_predictions.jsonl)
+- Feature baseline outputs: [results/stylometric_features_and_predictions.csv](/workspaces/llm-reading-modes-af09-codex/results/stylometric_features_and_predictions.csv)
+- Figures: [figures/custom_mode_confusion.png](/workspaces/llm-reading-modes-af09-codex/figures/custom_mode_confusion.png), [figures/mode_probe_accuracy.png](/workspaces/llm-reading-modes-af09-codex/figures/mode_probe_accuracy.png), [figures/delta_similarity.png](/workspaces/llm-reading-modes-af09-codex/figures/delta_similarity.png), [figures/semeval_subtaskB_confusion.png](/workspaces/llm-reading-modes-af09-codex/figures/semeval_subtaskB_confusion.png), [figures/custom_mode_lengths.png](/workspaces/llm-reading-modes-af09-codex/figures/custom_mode_lengths.png)
+
+## 6. Analysis & Discussion
+The results support the main hypothesis in a qualified form.
+
+First, broad production modes are clearly readable by a real LLM. In the controlled corpus, `gpt-4.1` cleanly distinguished original human answers, direct LLM generations, humanized LLM text, polished human text, dictated/spoken-style rewrites, and keyboard-noisy text. Because the stylometric baseline was much weaker, this does not reduce to a simple length-or-punctuation heuristic.
+
+Second, the embedding analysis supports the latent-variable interpretation. The grouped probe succeeded on unseen content, and the mode-specific transformation vectors were more consistent within a mode than across modes. This is exactly what we would expect if "mode" behaves like a reusable representational direction rather than a purely example-specific surface label.
+
+Third, the external benchmark sharply bounds the claim. The model did not demonstrate a strong zero-shot ability to separate `cohere`, `davinci`, `bloomz`, and `dolly` from `chatGPT`. That implies mode detection is strongest for high-level process properties such as editing state, speech-likeness, or noise patterns, not necessarily for robust fingerprinting of individual model families.
+
+The most plausible interpretation is that LLMs detect a hierarchy of modes:
+
+- Strongly detectable: keyboard noise, dictated/spoken cadence, broad human-vs-LLM process differences
+- Moderately detectable: post-editing and humanization modes
+- Weakly detectable zero-shot: exact generator identity among multiple non-human systems
+
+## 7. Limitations
+- The custom benchmark used `gpt-4.1` both to generate several transformed modes and to classify them. This creates a same-family recognition risk and may inflate accuracy.
+- The perfect custom classification result is likely too strong to be taken as a calibrated real-world estimate. Prompt-induced artifacts may have made the classes cleaner than naturally occurring modes.
+- `keyboard_noisy` was synthetic and deterministic. It captures a plausible typo mode, not a validated real keyboard-layout benchmark.
+- The controlled corpus preserved content only approximately, not exactly. Some semantic drift may remain across transformed variants.
+- The embedding permutation test was run with only 20 permutations after correcting the null, so the p-value should be treated as exploratory rather than definitive.
+- SemEval evaluation was zero-shot only. Fine-tuned attribution models would almost certainly outperform the prompting baseline.
+- The project did not run a span-level boundary experiment from SemEval Subtask C, so the latent-variable claim was tested at document level only.
+
+## 8. Conclusions & Next Steps
+The clearest answer to the research question is yes, LLMs do appear to detect multiple production modes beyond binary authorship, and those modes leave a measurable footprint in LLM-derived embedding space. However, the phenomenon is strongest for broad process states such as dictated/spoken style, keyboard noise, and post-editing, not for precise zero-shot source attribution among multiple generator families.
+
+The next experiments should make the claim harder and cleaner:
+
+1. Use one model family to generate data and a different family to judge it, to reduce self-recognition effects.
+2. Collect real dictated-vs-typed and real keyboard-layout data instead of synthetic proxies.
+3. Add abstention and ambiguity labels for borderline cases such as polished human text.
+4. Extend the latent-variable analysis to SemEval Subtask C or another mixed-authorship benchmark.
+5. Fit small supervised probes on external attribution datasets to test whether latent mode directions transfer beyond the custom corpus.
+
+## 9. Reproducibility Notes
+- Environment setup used the local `.venv` in this workspace.
+- The main runner is [src/research_workspace/run_mode_experiments.py](/workspaces/llm-reading-modes-af09-codex/src/research_workspace/run_mode_experiments.py).
+- Reproduction command:
+
+```bash
+source .venv/bin/activate
+PYTHONPATH=src python -m research_workspace.run_mode_experiments \
+  --workspace-root /workspaces/llm-reading-modes-af09-codex \
+  --custom-sample-size 60 \
+  --semeval-per-class 30 \
+  --bootstrap-iterations 200 \
+  --permutation-iterations 20
+```
+
+API-backed stages are cached under `results/cache/` to make reruns faster and cheaper.
+
+## 10. References
+- Wu et al. 2023. *A Survey on LLM-Generated Text Detection.*
+- Wang et al. 2024. *SemEval-2024 Task 8: Multigenerator, Multidomain, and Multilingual Black-Box Machine-Generated Text Detection.*
+- Abassy et al. 2024. *LLM-DetectAIve.*
+- Ji et al. 2024. *Detecting Machine-Generated Texts: Not Just "AI vs Humans".*
+- Sarvazyan et al. 2024. *TEXTMACHINA.*
+- Kundu et al. 2024. *Keystroke Dynamics Against Academic Dishonesty in the Age of LLMs.*
+- Liu et al. 2024. *Recording for Eyes, Not Echoing to Ears.*
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            RESEARCH PLAN
+════════════════════════════════════════════════════════════════════════════════
+
+# Research Plan: "Modes" in LLM Reading
+
+## Motivation & Novelty Assessment
+
+### Why This Research Matters
+LLMs are already used as judges, detectors, and assistants in settings where they implicitly interpret not just semantic content but also how text was produced. If models reliably infer production modes such as LLM-generation, post-editing, speech-like dictation, or keyboard-noise patterns, that affects moderation, provenance analysis, educational integrity, and how downstream systems should calibrate trust in text.
+
+### Gap in Existing Work
+The local literature review shows strong prior work on binary human-vs-machine detection, source attribution, mixed-authorship boundary detection, and spoken-to-written rewriting, but much weaker work on unified multi-mode detection under content controls and on treating "mode" as a latent variable rather than a task label. In particular, the gathered resources do not provide a benchmark that holds content approximately constant while varying production mode across multiple families.
+
+### Our Novel Contribution
+This project tests whether mode can be isolated as a cross-content latent variable by constructing a matched corpus where the same underlying answer is realized in multiple controlled modes. We then test two complementary claims: real LLMs can classify these modes from text alone, and LLM-derived embeddings encode stable mode directions that generalize across unseen content.
+
+### Experiment Justification
+- Experiment 1: Controlled six-way mode classification is needed to determine which production modes are directly detectable from text when content is approximately matched.
+- Experiment 2: Embedding-space probing and transformation-vector analysis are needed to test the stronger latent-variable claim, not just raw classification accuracy.
+- Experiment 3: SemEval Subtask B source-attribution evaluation is needed to verify that the observed phenomenon extends beyond our custom corpus to an external benchmark already identified in the literature.
+
+## Research Question
+What text production modes can current LLMs detect beyond simple human-vs-LLM authorship, and can "mode" be isolated as a latent variable in LLM interpretation of text?
+
+## Background and Motivation
+Recent benchmarks show that source attribution, machine-human boundary detection, and process labels such as machine-humanized or human-polished are learnable. What remains underexplored is whether these are separate tasks or instances of a broader mode-recognition ability. This project studies that question by combining a controlled multi-mode corpus with real-LLM judgments and embedding analysis.
+
+## Hypothesis Decomposition
+- H1: A real LLM can classify multiple production modes from text alone at accuracy materially above chance.
+- H2: Some modes are easier than others; overtly surface-marked modes such as dictated/spoken-like text and keyboard-noisy text will be easier than subtle post-editing modes.
+- H3: LLM embeddings contain cross-content information about mode, so a simple probe trained on embeddings will predict mode on unseen content above chance.
+- H4: For each controlled transformation, the embedding delta from base text to transformed text will be more consistent within a mode than across different modes, suggesting a stable mode direction.
+- H5: The same LLM will also perform above chance on external source-attribution data from SemEval Subtask B, showing that mode detection is not limited to the custom corpus.
+
+Independent variables:
+- Text mode: `human_original`, `llm_generated`, `llm_humanized`, `human_polished`, `dictated_spoken`, `keyboard_noisy`
+- Dataset: controlled HC3-derived corpus vs. SemEval Subtask B sample
+- Evaluation method: direct LLM classification, stylometric baseline, embedding probe
+
+Dependent variables:
+- Accuracy
+- Macro-F1
+- Confusion matrix structure
+- Calibration metrics from model probabilities
+- Probe accuracy under group-wise splits
+- Transformation-vector cosine consistency
+
+Alternative explanations to test against:
+- Topic/domain leakage rather than mode
+- Length differences rather than production mode
+- Trivial lexical markers added by prompts
+- Detection driven only by typos or punctuation sparsity
+
+## Proposed Methodology
+
+### Approach
+Build a matched evaluation set from HC3 by sampling questions from multiple domains and treating each item as a content anchor. For each anchor, create six mode variants using a mix of original human text, real OpenAI generations, controlled post-editing prompts, and a deterministic keyboard-noise perturbation. Then evaluate:
+
+1. zero-shot six-way mode classification with a real LLM
+2. a shallow stylometric baseline for comparison
+3. latent-variable analysis using OpenAI embeddings and simple probes
+4. external source-attribution validation on SemEval Subtask B
+
+This approach directly addresses the literature gap: content is approximately controlled, multiple mode families are present in one benchmark, and the latent-variable claim is tested separately from end-task accuracy.
+
+### Experimental Steps
+1. Sample approximately 60 HC3 items across `open_qa`, `finance`, and `medicine` with one human answer per item.
+   Rationale: enough examples for statistical testing while keeping API cost manageable and domains heterogeneous.
+2. Generate controlled variants for each item using a real OpenAI model.
+   Rationale: required by the prompt and necessary to test real LLM behavior rather than simulated agents.
+3. Add a deterministic keyboard-noise mode using adjacency and omission rules.
+   Rationale: literature gap for text-only keyboard-related mode signals.
+4. Query a real OpenAI model with a fixed classification prompt to predict one of the six modes and produce calibrated probabilities.
+   Rationale: directly tests whether an LLM reads production mode from text alone.
+5. Train a shallow baseline on hand-crafted stylometric features with grouped splits by content ID.
+   Rationale: checks whether success is purely due to obvious surface cues.
+6. Embed all texts with an OpenAI embedding model and train a grouped linear probe for mode prediction.
+   Rationale: tests whether mode is encoded in representation space independent of anchor content.
+7. Measure within-mode transformation-vector consistency from `human_original` to each transformed mode.
+   Rationale: operationalizes the latent-variable hypothesis as a stable direction in embedding space.
+8. Sample SemEval Subtask B dev data and run zero-shot source-attribution classification.
+   Rationale: external validation using the strongest gathered benchmark for provenance-like mode detection.
+
+### Baselines
+- Chance and majority-class baselines
+- Stylometric baseline using length, punctuation rate, digit ratio, lexical diversity, typo-like token ratio, disfluency marker counts, and sentence statistics
+- For external validation, majority baseline and chance baseline for six-class source attribution
+
+### Evaluation Metrics
+- Accuracy and macro-F1 for all multi-class classification tasks
+- Per-class precision and recall for subtle vs overt modes
+- Brier score and negative log-likelihood if probability outputs are available
+- Confusion matrices to identify nearby or ambiguous modes
+- Grouped cross-validation accuracy for embedding probes
+- Mean pairwise cosine similarity of transformation vectors within each mode
+- Bootstrap confidence intervals for main metrics
+
+### Statistical Analysis Plan
+- Primary significance level: `alpha = 0.05`
+- Use bootstrap confidence intervals for accuracy and macro-F1 on the controlled dataset
+- Use paired bootstrap tests for comparing LLM classifier vs stylometric baseline on the same examples
+- Use permutation testing for probe performance against chance under grouped labels
+- Use Welch t-tests or Mann-Whitney tests, depending on normality, to compare within-mode delta similarity against cross-mode similarity
+- Apply Benjamini-Hochberg correction across the family of per-mode similarity tests
+
+## Expected Outcomes
+Support for the hypothesis would look like:
+- six-way mode classification materially above chance (`1/6 = 16.7%`)
+- especially high recall for `dictated_spoken`, `keyboard_noisy`, and `llm_generated`
+- lower but still above-chance performance on `llm_humanized` and `human_polished`
+- grouped embedding probes above chance on unseen content
+- transformation vectors that cluster by mode rather than behaving randomly
+- above-chance source attribution on SemEval Subtask B
+
+Evidence against the hypothesis would include near-chance classification once content is controlled, probe failure on grouped splits, or transformation vectors with no mode-specific consistency.
+
+## Timeline and Milestones
+1. Planning and resource verification: complete first
+2. Environment and dependency completion: immediate next step
+3. Data loading and controlled corpus construction: next
+4. LLM evaluation and baseline modeling: next
+5. Embedding and latent analysis: next
+6. External SemEval validation: next
+7. Figures, report, and reproducibility pass: final
+
+## Potential Challenges
+- API output formatting failures or transient request errors
+  Mitigation: JSON schema prompt, retries, and response caching
+- Generated variants drifting semantically away from the source
+  Mitigation: prompt for content preservation and run spot checks with saved examples
+- Keyboard-noise mode being trivially easy
+  Mitigation: analyze it separately and avoid letting it dominate the broader conclusion
+- Cost or runtime growth
+  Mitigation: small pilot first, then scale to full sample after validation
+- Domain confounds
+  Mitigation: balanced sampling across HC3 domains and grouped evaluation by anchor content
+
+## Success Criteria
+- A complete reproducible pipeline in `src/` with cached model outputs in `results/`
+- Actual experiments run with real OpenAI APIs
+- At least one statistically supported result on controlled multi-mode detection
+- A concrete answer to whether mode behaves like a latent variable in embedding space
+- Final documentation in `REPORT.md` and `README.md` with results, limitations, and reproduction steps
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          LITERATURE REVIEW
+════════════════════════════════════════════════════════════════════════════════
+
+# Literature Review: "Modes" in LLM Reading
+
+## Review Scope
+
+### Research Question
+What text "modes" can LLMs detect beyond simple human-vs-LLM authorship, and is "mode" a separable latent variable in text interpretation?
+
+### Inclusion Criteria
+- Focuses on detecting text origin, generation process, editing process, or mixed authorship
+- Introduces or uses datasets for source attribution, boundary detection, or fine-grained authorship labels
+- Includes behavioral or spoken/written signals relevant to non-semantic mode detection
+- Provides code, data, or benchmark structure that can support downstream experiments
+
+### Exclusion Criteria
+- Pure watermarking or content provenance papers without usable text-side evaluation relevance
+- Speech-only or keystroke-only papers with no link to text interpretation
+- General LLM evaluation work without a mode-detection angle
+
+### Time Frame
+Primary focus: 2023-2025, with one targeted proxy paper for spoken-to-written conversion in 2024.
+
+### Sources
+- Manual arXiv search
+- Official GitHub repositories
+- Hugging Face datasets
+- SemEval task repository and linked data
+
+## Search Log
+
+| Date | Query | Source | Notes |
+|------|-------|--------|-------|
+| 2026-05-25 | `machine-generated text detection`, `LLM-generated text detection` | arXiv/manual | Produced survey, SemEval, attribution, and fine-grained detector papers |
+| 2026-05-25 | `keystroke dynamics LLM` | arXiv/manual | Produced keystroke-assisted-cheating literature |
+| 2026-05-25 | `spoken to written ASR transcripts` | arXiv/manual | Produced CoS2W / SWAB benchmark paper |
+| 2026-05-25 | `SemEval 2024 task 8 machine-generated text detection` | GitHub/manual | Produced official task repo and data links |
+
+## Key Papers
+
+### 1. A Survey on LLM-Generated Text Detection
+- Authors: Wu et al.
+- Year: 2023
+- Source: arXiv
+- Key contribution: Organizes detector families into watermarking, statistics-based, neural, and human-assisted methods.
+- Methodology: Survey and synthesis.
+- Datasets used: Reviews common detector benchmarks rather than introducing a new one.
+- Results: Not an empirical benchmark paper; its value is in the taxonomy and failure modes.
+- Code available: Yes, linked from the paper.
+- Relevance: Best entry point for framing "mode" as a family of signals rather than a single binary label.
+
+### 2. SemEval-2024 Task 8
+- Authors: Wang et al.
+- Year: 2024
+- Source: SemEval / arXiv
+- Key contribution: Establishes three related tasks: binary detection, generator attribution, and human-machine boundary detection.
+- Methodology: Shared-task benchmark across domains, models, and languages with hidden surprise conditions.
+- Datasets used: Extension of the M4 resource; task-specific train/dev/test sets.
+- Baselines: Transformer encoder baselines for each subtask.
+- Results:
+  - Subtask B baseline accuracy: `74.61`
+  - Best Subtask B accuracy: `90.85`
+  - Subtask C baseline MAE: `21.54`
+  - Best Subtask C MAE: `15.68`
+- Code available: Yes, official repo cloned locally.
+- Relevance: Strongest direct evidence that mode is not just binary authorship. Source identity and boundary position are both learnable.
+
+### 3. LLM-DetectAIve
+- Authors: Abassy et al.
+- Year: 2024
+- Source: EMNLP Demo / arXiv
+- Key contribution: Expands machine-generated text detection into four classes: human-written, machine-generated, machine-humanized, and human-machine-polished.
+- Methodology: Builds a large fine-grained dataset by taking M4GT-Bench style data and generating edited variants with multiple APIs and prompts.
+- Datasets used: Derived from human text plus multi-provider LLM generation; total of `303,110` generated texts for the LLM-dependent classes.
+- Baselines: RoBERTa, DeBERTa, DistilBERT.
+- Results: Reports strong domain-specific performance, with RoBERTa around mid-`95%` macro-F1/accuracy on the shown domains.
+- Code available: Yes, repo cloned locally.
+- Relevance: Most directly aligned with the hypothesis that "mode" includes process labels like rewritten, polished, or humanized.
+
+### 4. Detecting Machine-Generated Texts: Not Just "AI vs Humans"
+- Authors: Ji et al.
+- Year: 2024
+- Source: arXiv
+- Key contribution: Introduces an explicit "undecided" category and argues that explainability breaks under forced binary labeling.
+- Methodology: Builds four datasets, identifies strong detectors and hard generators, then collects ternary labels plus explanation notes from annotators.
+- Datasets used: New human/LLM datasets with a ternary follow-up set.
+- Results: Main insight is conceptual: ambiguous cases are common enough that detection should represent them explicitly.
+- Code available: Not found in gathered resources.
+- Relevance: Important for latent-variable thinking. If mode is real, some texts should occupy intermediate regions instead of collapsing into binary labels.
+
+### 5. TEXTMACHINA
+- Authors: Sarvazyan et al.
+- Year: 2024
+- Source: arXiv
+- Key contribution: Framework for generating datasets for detection, attribution, boundary detection, and mixcase tasks.
+- Methodology: Human-text ingestion, prompt templating, constrained decoding, post-processing, bias mitigation, and task-specific generators.
+- Datasets used: User-selected input corpora; examples use XSum and multiple providers.
+- Results: Infrastructure contribution rather than benchmark leadership.
+- Code available: Yes, repo cloned locally.
+- Relevance: Likely the best practical tool here for building new mode datasets when public benchmarks are missing.
+
+### 6. Source Attribution for LLM-Generated Data
+- Authors: Wang et al.
+- Year: 2023
+- Source: arXiv
+- Key contribution: Formalizes source attribution as identifying the data provider responsible for generated text, using watermarking.
+- Methodology: Watermark-based attribution framework with robustness and accuracy goals.
+- Datasets used: Synthetic texts generated with provider/source labels.
+- Results: Shows that source-level attribution is technically feasible under their setup.
+- Code available: Not gathered.
+- Relevance: Expands the idea of mode from surface authorship to latent provenance.
+
+### 7. Keystroke Dynamics Against Academic Dishonesty in the Age of LLMs
+- Authors: Kundu et al.
+- Year: 2024
+- Source: IJCB / arXiv
+- Key contribution: Detects AI-assisted writing from behavior rather than final text alone.
+- Methodology: Modified TypeNet on keystroke sequences from genuine and assisted writing sessions across opinion-based and fact-based prompts.
+- Datasets used: New keystroke dataset plus transfer tests with Buffalo and SBU keystroke corpora.
+- Results:
+  - Condition-specific accuracy: `74.98%` to `85.72%`
+  - Condition-agnostic accuracy: `52.24%` to `80.54%`
+- Code available: Not gathered.
+- Relevance: Very important boundary case. It suggests some modes may be much easier to identify behaviorally than textually.
+
+### 8. Recording for Eyes, Not Echoing to Ears
+- Authors: Liu et al.
+- Year: 2024
+- Source: AAAI / arXiv
+- Key contribution: Defines contextualized spoken-to-written conversion for ASR transcripts and introduces the SWAB benchmark.
+- Methodology: Document-level conversion with context and auxiliary information, GPT-4 assisted construction, then human revision.
+- Datasets used: SWAB, built from meeting, podcast, and lecture transcripts.
+- Results: Shows LLMs can reliably recognize and rewrite spoken-mode artifacts into written-formal text.
+- Code/data: Paper points to a public SWAB repository.
+- Relevance: Best direct proxy for the "dictated/spoken vs written" mode hypothesis.
+
+## Common Methodologies
+
+- Fine-tuned encoder classifiers:
+  - Used heavily in SemEval Task 8 and LLM-DetectAIve
+  - RoBERTa and DeBERTa remain strong baselines
+
+- Multi-class or structured mode labels:
+  - Source attribution in SemEval Subtask B
+  - Four-way authorship/process labels in LLM-DetectAIve
+  - Boundary localization in SemEval Subtask C
+  - Ternary explainability framing in Ji et al.
+
+- Synthetic dataset generation:
+  - Central in LLM-DetectAIve and TextMachina
+  - Necessary when public corpora do not expose the desired mode variable
+
+- Context-aware rewriting benchmarks:
+  - CoS2W / SWAB models spoken-to-written style transfer as a mode change
+
+- Behavioral features:
+  - Keystroke dynamics are strong for AI-assistance detection, but they require data beyond final text
+
+## Standard Baselines
+
+- `RoBERTa` / `DeBERTa` fine-tuning for full-text classification
+- `XLNet`, `Longformer`, `T5`, and ensemble variants in shared-task settings
+- `TypeNet` for keystroke dynamics
+- Zero-shot/statistical detectors such as entropy, rank, and Binoculars appear in the SemEval ecosystem but are generally weaker than tuned classifiers
+
+## Evaluation Metrics
+
+- Accuracy:
+  - Standard for multi-class source attribution
+
+- Macro-F1:
+  - Important when label balance is imperfect or mode classes are heterogeneous
+
+- MAE:
+  - Used for boundary detection in mixed-mode text
+
+- Calibration / abstention-aware analysis:
+  - Not standardized yet, but the Ji et al. paper strongly suggests this should matter
+
+- Correlation with human judgments:
+  - Used in spoken-to-written evaluation when scoring formality and faithfulness
+
+## Datasets in the Literature
+
+- `M4` / `M4GT-Bench`:
+  - Foundation for recent machine-generated text detection benchmarks
+
+- SemEval-2024 Task 8:
+  - Best gathered benchmark for binary detection, source attribution, and boundary detection
+
+- LLM-DetectAIve dataset:
+  - Best gathered example of fine-grained process labels
+
+- SWAB:
+  - Best discovered spoken-to-written benchmark for transcript mode
+
+- HC3:
+  - Useful binary human-vs-ChatGPT warm-up dataset, but less subtle than SemEval/LLM-DetectAIve
+
+## Gaps and Opportunities
+
+- There is strong literature for:
+  - human vs machine
+  - model/source attribution
+  - mixed-authorship boundary detection
+  - machine-humanized vs human-machine-polished text
+  - spoken-to-written transcript style
+
+- There is weaker literature for:
+  - keyboard-layout inference from final text alone
+  - typo-pattern-based latent mode discovery
+  - jointly modeling multiple modes as disentangled latent variables
+
+- The biggest open opportunity is a unified benchmark where the same underlying content is realized across multiple controlled modes:
+  - human typed
+  - human dictated
+  - human typed with keyboard-layout perturbations
+  - LLM generated
+  - human text polished by LLM
+  - LLM text humanized by editing
+
+## Recommendations for Our Experiment
+
+- Recommended datasets:
+  - SemEval Subtask B for source attribution
+  - SemEval Subtask C for mixed-mode boundary detection
+  - HC3 for binary warm-up or sanity checks
+  - LibriSpeech transcript sample only as a proxy while reconstructing a proper spoken-vs-written benchmark
+
+- Recommended baselines:
+  - RoBERTa-base and DeBERTa-v3 classifiers
+  - A simple abstaining classifier or ternary scheme with an "uncertain" class
+  - If available, a sequence labeling or regression baseline for span/boundary tasks
+
+- Recommended metrics:
+  - Macro-F1 and accuracy for document-level mode classification
+  - MAE for boundary localization
+  - Confidence calibration or abstention coverage for ambiguous modes
+
+- Methodological considerations:
+  - Avoid conflating topic/domain with mode
+  - Hold content constant where possible and vary only the mode
+  - Use surprise generators or unseen perturbations to test generalization
+  - Include ambiguous/intermediate examples rather than forcing all samples into binary labels
+  - Treat keyboard-layout and typo-pattern mode as likely requiring synthetic or newly collected data
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          PAPER REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+Generate a complete academic paper with the following structure:
+
+1. TITLE
+   - Clear, specific, informative
+   - Should convey main finding or contribution
+
+2. AUTHOR
+   - Use this exact author line in the \author{} block: Ari Holtzman and NeuriCo
+
+3. ABSTRACT (150-250 words)
+   - Problem statement
+   - Approach
+   - Key results
+   - Significance
+
+4. INTRODUCTION
+   - Research problem and motivation
+   - Gap in existing work
+   - Our contribution (be specific)
+   - Paper organization
+
+5. RELATED WORK
+   - Organized by theme/approach
+   - Position our work relative to prior work
+   - Cite papers from literature review
+
+6. METHODOLOGY
+   - Clear description of approach
+   - Experimental setup
+   - Datasets used
+   - Evaluation metrics
+   - Baselines
+
+7. RESULTS
+   - Present results with tables and figures
+   - Statistical analysis
+   - Comparison to baselines
+   - Ablation studies (if applicable)
+
+8. DISCUSSION
+   - Interpretation of results
+   - Limitations
+   - Broader implications
+
+9. CONCLUSION
+   - Summary of contributions
+   - Key findings
+   - Future work
+
+10. REFERENCES
+   - BibTeX format
+   - All cited papers
+
+════════════════════════════════════════════════════════════════════════════════
+                          OUTPUT FORMAT
+════════════════════════════════════════════════════════════════════════════════
+
+Create a MODULAR LaTeX project with the following directory structure:
+
+paper_draft/
+├── main.tex              # Main file that imports all sections
+├── references.bib        # BibTeX references
+├── sections/
+│   ├── abstract.tex      # Abstract content
+│   ├── introduction.tex  # Introduction section
+│   ├── related_work.tex  # Related work section
+│   ├── methodology.tex   # Methodology section
+│   ├── results.tex       # Results section
+│   ├── discussion.tex    # Discussion section
+│   └── conclusion.tex    # Conclusion section
+├── figures/              # Directory for any generated figures
+├── tables/               # Directory for complex standalone tables
+└── appendix/             # Directory for appendix sections (if needed)
+
+INSTRUCTIONS:
+1. First, create the directory structure above (mkdir -p paper_draft/sections paper_draft/figures paper_draft/tables paper_draft/appendix)
+2. Write main.tex using the EXACT preamble for NEURIPS:
+
+   \documentclass{article}
+   \usepackage[final]{neurips_2025}  % NEURIPS style (neurips_2025.sty is in paper_draft/)
+   \usepackage[hidelinks]{hyperref}  % REQUIRED: clickable links
+   \usepackage{booktabs}  % REQUIRED: professional tables
+   \usepackage{graphicx}
+   \usepackage{amsmath,amssymb}
+
+   % Import command files
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+   % Use this bibliography style:
+   \bibliographystyle{plainnat}
+
+   \author{Ari Holtzman and NeuriCo}
+
+   - Use \input{sections/...} to include each section
+   - Use \bibliography{references} for references
+3. Write each section file with COMPLETE content (no placeholders)
+4. Each section file should include its \section{} command
+5. Write references.bib with all citations in BibTeX format
+6. After writing all files, compile the paper:
+   cd paper_draft && pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex
+
+This modular structure allows humans to easily:
+- Edit individual sections without navigating a large file
+- Track changes per section
+- Reuse sections across different paper versions
+
+════════════════════════════════════════════════════════════════════════════════
+                          QUALITY REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+- Academic tone throughout
+- All claims must be supported by data from the experiment report
+- Proper citations using \cite{} commands
+- Clear figures and tables with proper captions
+- NO placeholder text - every section must have real content
+- The paper MUST compile without errors
+- If compilation fails, debug and fix the LaTeX errors
+
+════════════════════════════════════════════════════════════════════════════════
+                          LAB WRITING STYLE
+════════════════════════════════════════════════════════════════════════════════
+
+Follow these lab-specific conventions to match our paper style:
+
+1. LANGUAGE STYLE:
+   - Use active voice: "We propose", "We examine", "We focus on"
+   - Be direct and confident: "Our main question is...", "We hypothesize that..."
+   - State things clearly and simply - prefer plain language over jargon
+   - Use bold questions as paragraph organizers: {\bf what is X?}
+   - Include specific quantitative claims: "8.97% over baseline"
+   - Avoid fancy wording: "utilize" → "use", "facilitate" → "help"
+
+2. INTRODUCTION STRUCTURE:
+   - Engaging hook (get to the point quickly)
+   - Problem importance
+   - Gap identification
+   - Your approach with method figure reference
+   - Quantitative preview of results
+   - Contribution bullets (3-4 items, action verbs)
+
+3. CONTRIBUTION LISTS:
+   \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+       \item We propose...
+       \item We conduct...
+       \item We complement...
+   \end{itemize}
+
+4. MODULAR COMMANDS STRUCTURE:
+   Command templates are pre-copied to paper_draft/commands/:
+   - math.tex: Math notation macros
+   - general.tex: Formatting macros
+   - macros.tex: Project-specific term definitions (customize this for your paper)
+
+   In main.tex, include:
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+5. REFERENCE CONVENTIONS:
+   Use reference macros from math.tex:
+   - \figref{fig:name} for "figure 1" (lowercase, in-sentence)
+   - \Figref{fig:name} for "Figure 1" (capitalized, start of sentence)
+   - \secref{sec:name} for "section 2"
+
+6. TEXT FORMATTING:
+   - Use \para{Header text} for bold paragraph headers
+   - Define method/dataset names with \textsc and \xspace:
+     \newcommand{\methodname}{\textsc{MethodName}\xspace}
+
+7. TABLE FORMATTING:
+   - Use booktabs package (no vertical lines)
+   - Use \resizebox{\textwidth}{!}{...} for wide tables
+   - Use @{} to remove padding at table edges
+   - Use \cmidrule(lr){x-y} for sub-headers
+   - Use \textsc{} for dataset/method names in headers
+   - Bold best results with {\bf ...}
+
+8. FIGURE FORMATTING:
+   - Use 0.32\textwidth for 3-column subfigures
+   - Use 0.95\linewidth for full-width figures
+   - Use \input{figures/legend} for shared legends
+   - Write self-contained captions explaining key observations
+
+9. RESULTS PRESENTATION:
+   - Define \increase and \decrease for colored arrows (green up, red down)
+   - Bold best results in tables
+   - Report confidence intervals when available
+
+10. ALGORITHM STYLING:
+    - Use algpseudocode with [noend]
+    - Use \triangleright for comments
+
+11. HYPERLINKS (REQUIRED):
+    - Always use \usepackage[hidelinks]{hyperref} or with colored links
+    - All citations, section refs, figure refs, table refs must be clickable
+    - This is essential for reader navigation
+
+════════════════════════════════════════════════════════════════════════════════
+                          WORKFLOW: REVIEW AND REFLECT
+════════════════════════════════════════════════════════════════════════════════
+
+Before calling finish, you MUST complete these review steps:
+
+1. REVIEW RESOURCES (at the start):
+   - Read .codex/skills/paper-writer/SKILL.md for detailed guidance
+   - Study templates/paper_writing/lab_style_guide.md for style conventions
+   - Browse paper_examples/ for formatting and language patterns
+
+2. SELF-REFLECTION (before finishing):
+   After writing all sections, review your work against these criteria:
+
+   LANGUAGE CHECK:
+   - [ ] Is the writing clear and jargon-free?
+   - [ ] Are claims specific with quantitative support?
+   - [ ] Is active voice used throughout?
+
+   FORMATTING CHECK:
+   - [ ] Does main.tex include \input{commands/math}, \input{commands/general}, \input{commands/macros}?
+   - [ ] Is hyperref package included for clickable references?
+   - [ ] Do tables use booktabs (no vertical lines)?
+   - [ ] Are best results bolded in tables?
+   - [ ] Are figures/tables properly captioned?
+
+   STRUCTURE CHECK:
+   - [ ] Does introduction follow: hook → importance → gap → approach → preview → contributions?
+   - [ ] Are contribution bullets specific with action verbs?
+   - [ ] Does the paper compile without errors?
+
+3. FIX ISSUES:
+   - Address any issues found in the self-reflection
+   - Re-compile and verify the PDF looks correct
+
+Only after completing this review should you consider the paper finished.

@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Robinhood is a member of FINRA and is required to follow strict regulations to protect customer assets. Client accounts at Robinhood are insured by the Securities Investor Protection Corporation (SIPC), which protects securities and cash in brokerage accounts up to $500,000 (including $250,000 for cash claims) in the event the brokerage fails. However, this insurance does not protect against losses from market fluctuations or investment decisions.",
+    "llm_humanized": "Yeah, Robinhood is part of FINRA, just like other brokers, and your assets are protected by SIPC insurance if something happens to the company\u2014like if they go bankrupt. That means your money and stocks are covered up to $500,000, but keep in mind, this doesn\u2019t cover you if your investments lose value, just if the broker itself fails.",
+    "human_polished": "Robinhood is a member of FINRA, just like any other broker, which means they are legally required to safeguard your assets. Even if Robinhood were to file for bankruptcy, your money would be protected and returned to you. Of course, any broker could theoretically commit fraud, but there\u2019s no reason to believe Robinhood is more likely to do so, even for wealthy clients. As noted in an article from TheStreet.com: 'So, despite the name, the Robinhood philosophy isn't about stealing from the rich, but rather taking perks often reserved for top-tier investors and giving them to the everyman trader.'",
+    "dictated_spoken": "So Robinhood is a member of FINRA, like other brokers, which means they can\u2019t just lose your assets, it\u2019s not legal. Even if they went bankrupt, you\u2019d get your money back. I mean, technically any broker could steal your assets, but I don\u2019t think Robinhood is any more likely to do that, even if you\u2019re rich. There was this quote from TheStreet.com, something like, the Robinhood philosophy isn\u2019t about stealing from the rich, it\u2019s more about giving regular traders the perks that used to be just for top investors."
+  },
+  "usage": {
+    "input_tokens": 328,
+    "output_tokens": 434,
+    "total_tokens": 762
+  },
+  "anchor_id": "hc3_002"
+}

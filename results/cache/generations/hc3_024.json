@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "You cannot exercise ISO or NSO stock options and contribute them directly to a Solo 401(k). Solo 401(k) plans can only be funded with cash contributions, not with stock options or shares from your employer. Transferring ISOs or NSOs from another employer into your Solo 401(k) is not permitted, as it would be considered self-dealing and is prohibited by IRS rules. Once you exercise your stock options, any resulting gain is taxable and cannot be sheltered by moving the shares into your Solo 401(k).",
+    "llm_humanized": "Unfortunately, you can't just exercise your ISOs or NSOs and put them into your Solo 401(k). The rules only let you fund a Solo 401(k) with cash, not with stock options or shares from your employer. Trying to move those options or shares into the plan would actually count as self-dealing, which the IRS doesn't allow. So, even if you exercise your options, any gains are still taxable\u2014you can't just tuck them away in your Solo 401(k) to avoid taxes.",
+    "human_polished": "With a Solo 401(k), you can fund it using cash or, in some cases, shares of your own company. However, you cannot transfer ISOs from another employer into your Solo 401(k). While it might seem appealing to do so to avoid tax complications with employee stock options, this is not permitted. As others have noted, such a transfer would be considered self-dealing. Once you exercise an ISO, any gain is taxable and cannot be hidden by moving it into your Solo 401(k).",
+    "dictated_spoken": "So, if you have a Solo 401k, you can put cash into it, or maybe shares from your own company, but you can't bring in things like ISOs from another employer. I get why you'd want to, to avoid the tax headaches with stock options, but that's just not allowed. Like, once you exercise the ISO, the gain is there and you can't just move it into your 401k to hide it from taxes. It's considered self dealing, so the IRS doesn't let you do that."
+  },
+  "usage": {
+    "input_tokens": 319,
+    "output_tokens": 453,
+    "total_tokens": 772
+  },
+  "anchor_id": "hc3_024"
+}

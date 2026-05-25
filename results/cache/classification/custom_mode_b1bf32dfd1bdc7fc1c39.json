@@ -1,0 +1,57 @@
+{
+  "predictions": [
+    {
+      "id": "hc3_005::llm_humanized",
+      "predicted_label": "llm_humanized",
+      "probabilities": {
+        "human_original": 0.05,
+        "llm_generated": 0.15,
+        "llm_humanized": 0.6,
+        "human_polished": 0.1,
+        "dictated_spoken": 0.05,
+        "keyboard_noisy": 0.05
+      }
+    },
+    {
+      "id": "hc3_005::human_polished",
+      "predicted_label": "human_polished",
+      "probabilities": {
+        "human_original": 0.1,
+        "llm_generated": 0.1,
+        "llm_humanized": 0.1,
+        "human_polished": 0.6,
+        "dictated_spoken": 0.05,
+        "keyboard_noisy": 0.05
+      }
+    },
+    {
+      "id": "hc3_005::dictated_spoken",
+      "predicted_label": "dictated_spoken",
+      "probabilities": {
+        "human_original": 0.05,
+        "llm_generated": 0.05,
+        "llm_humanized": 0.05,
+        "human_polished": 0.1,
+        "dictated_spoken": 0.7,
+        "keyboard_noisy": 0.05
+      }
+    },
+    {
+      "id": "hc3_005::keyboard_noisy",
+      "predicted_label": "keyboard_noisy",
+      "probabilities": {
+        "human_original": 0.05,
+        "llm_generated": 0.05,
+        "llm_humanized": 0.05,
+        "human_polished": 0.05,
+        "dictated_spoken": 0.05,
+        "keyboard_noisy": 0.75
+      }
+    }
+  ],
+  "usage": {
+    "input_tokens": 524,
+    "output_tokens": 429,
+    "total_tokens": 953
+  }
+}

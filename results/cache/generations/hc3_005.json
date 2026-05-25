@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Motility issues in sperm can sometimes be caused by infections, as indicated by the presence of pus cells in your semen analysis. Completing the prescribed 10-day course of antibiotics is important to address the infection, which may help improve sperm motility if the infection is the underlying cause. After finishing the antibiotics, it is recommended to repeat the semen analysis, ensuring an appropriate period of abstinence beforehand. This will help determine if the motility has improved. If motility remains low, further evaluation by your doctor may be necessary to explore other potential causes and treatment options.",
+    "llm_humanized": "It sounds like your sperm motility issue could be linked to an infection, especially since you have a lot of pus cells and your doctor prescribed antibiotics. Make sure to finish the full 10-day course of medication. Once you\u2019re done, you should repeat the semen analysis\u2014just remember to follow the recommended abstinence period before the test. This will show if the motility has improved after treating the infection. If things haven\u2019t changed much, your doctor might want to look into other possible reasons and treatments.",
+    "human_polished": "Hello and welcome to HCM. If your low sperm motility is due to an infection, completing the full course of antibiotics as prescribed is essential. This treatment may help correct the motility issue if infection is the cause. After finishing the antibiotics, you should repeat the semen analysis, making sure to observe the recommended abstinence period beforehand. I hope this information is helpful. Take care.",
+    "dictated_spoken": "Hi, welcome to HCM. So, if your sperm motility is low because of an infection, you really need to finish the antibiotics your doctor gave you, that\u2019s the main way to fix motility if infection\u2019s the cause. After you\u2019re done with the medicine, you should get another semen analysis, and make sure you follow the abstinence period before the test, that\u2019s important. Hope this helps, take care."
+  },
+  "usage": {
+    "input_tokens": 364,
+    "output_tokens": 414,
+    "total_tokens": 778
+  },
+  "anchor_id": "hc3_005"
+}

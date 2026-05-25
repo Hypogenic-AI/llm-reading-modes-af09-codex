@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "According to the 2011 United Kingdom Census, there were approximately 2.7 million Muslims living in the UK, making up about 4.8% of the total population. The majority of Muslims reside in England and Wales, with smaller populations in Scotland and Northern Ireland.",
+    "llm_humanized": "So, based on the 2011 UK Census, there were around 2.7 million Muslims in the country, which is about 4.8% of the population. Most of them live in England and Wales, while Scotland and Northern Ireland have much smaller Muslim communities.",
+    "human_polished": "Today, Islam is the second largest religion in the United Kingdom. According to the 2011 UK Census, the total Muslim population had reached 2.7 million, representing 4.8% of the overall population. The vast majority of Muslims in the UK live in England and Wales: out of 1,591,000 Muslims recorded in the 2001 Census, 1,536,015 were in England and Wales, making up 3% of the population at that time. In Scotland, there were 42,557 Muslims (0.84% of the population), and in Northern Ireland, 1,943 Muslims were recorded.",
+    "dictated_spoken": "Yeah so Islam is actually the second biggest religion in the UK now and if you look at the 2011 Census, it showed there were about 2.7 million Muslims, which is like 4.8 percent of the whole population. Most Muslims live in England and Wales\u2014back in 2001, out of about 1.6 million Muslims, over 1.5 million were in those two countries, making up about 3 percent of the population then. Scotland had around 42,500 Muslims, which was less than 1 percent, and Northern Ireland had just under 2,000."
+  },
+  "usage": {
+    "input_tokens": 341,
+    "output_tokens": 402,
+    "total_tokens": 743
+  },
+  "anchor_id": "hc3_019"
+}

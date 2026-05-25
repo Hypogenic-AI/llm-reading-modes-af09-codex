@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Early humans, such as Homo erectus and Homo ergaster, initially lived in Africa before migrating to other regions. These species spread throughout Africa, Asia, and Europe over time. According to the Recent African Ancestry theory, modern humans evolved in Africa\u2014possibly from Homo heidelbergensis, Homo rhodesiensis, or Homo antecessor\u2014and began migrating out of Africa between 50,000 and 100,000 years ago, eventually replacing local populations like Homo erectus, Homo denisova, Homo floresiensis, and Homo neanderthalensis.",
+    "llm_humanized": "So, early humans like Homo erectus and Homo ergaster started out in Africa, but they didn\u2019t stay put\u2014they eventually spread into Asia and Europe too. The Recent African Ancestry theory says that modern humans actually evolved in Africa, maybe from species like Homo heidelbergensis or Homo rhodesiensis, and then left the continent somewhere between 50,000 and 100,000 years ago. As they moved, they replaced other human species like Neanderthals and Denisovans along the way.",
+    "human_polished": "Homo erectus and Homo ergaster were the first hominins to leave Africa, spreading across Africa, Asia, and Europe. According to the Recent African Ancestry theory, modern humans evolved in Africa\u2014possibly from Homo heidelbergensis, Homo rhodesiensis, or Homo antecessor\u2014and migrated out of the continent approximately 50,000 to 100,000 years ago. As they dispersed, they replaced local populations such as Homo erectus, Homo denisova, Homo floresiensis, and Homo neanderthalensis.",
+    "dictated_spoken": "Yeah, so early humans like Homo erectus and Homo ergaster, they were actually the first to leave Africa and ended up spreading through Africa, Asia, and Europe. And then, according to the Recent African Ancestry theory, modern humans evolved in Africa, maybe from Homo heidelbergensis or rhodesiensis or even antecessor, and then they started migrating out of Africa about 50,000 to 100,000 years ago. As they moved out, they replaced other local human species like Homo erectus, Denisovans, Floresiensis, and Neanderthals."
+  },
+  "usage": {
+    "input_tokens": 313,
+    "output_tokens": 489,
+    "total_tokens": 802
+  },
+  "anchor_id": "hc3_015"
+}

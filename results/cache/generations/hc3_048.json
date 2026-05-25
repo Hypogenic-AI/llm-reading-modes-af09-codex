@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Chest pain on the right side that radiates to the shoulder blade, especially when accompanied by recent cold or flu-like symptoms, is often due to muscle strain or inflammation from coughing or viral infection. The flu can cause generalized muscle aches and sometimes localized pain if you've been coughing a lot or have been less active. However, if the pain is severe, persistent, associated with shortness of breath, fever, or other concerning symptoms, it is important to see a healthcare provider to rule out other causes such as pneumonia, pleurisy, or other chest conditions.",
+    "llm_humanized": "It sounds like your right-sided chest and shoulder blade pain could be from muscle strain or inflammation, especially since you've been sick with flu-like symptoms. Sometimes, all the coughing or just being under the weather can make your muscles ache in weird places. The flu can definitely do that. But if the pain gets worse, sticks around, or you notice things like trouble breathing or a high fever, it\u2019s a good idea to get checked out by a doctor to make sure it\u2019s nothing more serious, like pneumonia or something affecting your lungs.",
+    "human_polished": "Hi, I understand your concern. Since you have viral flu symptoms, it's possible that your chest and shoulder blade pain are due to muscle aches, which are common with viral infections. Symptomatic treatment is recommended: get plenty of rest, use oxymetazoline nasal drops as a decongestant for your cold, and take cetirizine to help with inflammation. Drink plenty of water and try steam inhalation with eucalyptus oil. Avoid spicy and fried foods for a few days. If your symptoms persist, you should have a physical examination, including auscultation, and possibly a chest X-ray if needed. Take care. \u2013 Dr. Parth",
+    "dictated_spoken": "Hi yeah I get your concern here so with viral flu you can definitely get muscle pain and other symptoms like that so what you\u2019re describing could be from the flu yeah. For now just focus on symptomatic treatment\u2014rest up, you can use oxymetazoline nasal drops for the congestion, and cetrizine can help with inflammation. Drink more water, try steam inhalation with eucalyptus, and avoid spicy or fried foods for a few days. If you\u2019re still having symptoms, you should get checked out\u2014maybe have your chest listened to and get a chest X-ray if needed. Take care, Dr. Parth."
+  },
+  "usage": {
+    "input_tokens": 380,
+    "output_tokens": 514,
+    "total_tokens": 894
+  },
+  "anchor_id": "hc3_048"
+}

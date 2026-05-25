@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Whether it makes sense to buy a house in your situation depends on several factors, including your location, budget, and long-term plans. In many areas, a $450,000 house is considered quite expensive unless you are in a major urban market. If you are open to living in suburban or smaller city areas, you may be able to find a suitable 3-bedroom home for significantly less, sometimes under $300,000. I recommend researching local real estate listings, including foreclosures and properties owned by bankruptcy courts, as you might find quality homes in the $150,000 to $200,000 range. However, if you are in a region where these prices are unrealistic, you may need to adjust your expectations accordingly.",
+    "llm_humanized": "Honestly, whether buying a house makes sense for you really depends on where you live and what your needs are. $450k sounds pretty steep unless you\u2019re in a big city, but in a lot of places, you can get a decent 3-bedroom house for way less\u2014sometimes even under $300k. I\u2019d suggest checking out real estate listings in your area, and don\u2019t forget to look at foreclosures or properties from bankruptcy courts; you might be surprised to find something good for $150k to $200k. Of course, if you\u2019re in a market where those prices just aren\u2019t realistic, then my advice might not apply.",
+    "human_polished": "I'm not sure why you feel you need a $450,000 house\u2014that seems quite high in today's market unless you're in a major urban area. If you're considering living in the suburbs or a smaller city or town, you should be able to find a nice 3-bedroom house for well under $300,000. Before deciding against buying a house, I recommend spending some time researching real estate listings in your area, including foreclosures and properties owned by bankruptcy courts. You might be surprised to find a great home for as little as $150,000 to $200,000. Of course, if you live somewhere where these prices aren't realistic, please disregard my advice.",
+    "dictated_spoken": "So, I\u2019m just not sure why you think you need a four hundred fifty thousand dollar house, that seems really high unless you\u2019re in, like, a big city. If you\u2019re looking in the suburbs or a smaller town, you can usually find a nice three-bedroom for way less, like under three hundred thousand. Before you decide not to buy, I\u2019d spend some time looking at real estate listings in your area, maybe check out foreclosures or bankruptcy court properties too\u2014you might actually find something great for like one fifty to two hundred thousand. But, you know, if you\u2019re in a place where those prices just don\u2019t exist, then just ignore what I\u2019m saying."
+  },
+  "usage": {
+    "input_tokens": 345,
+    "output_tokens": 583,
+    "total_tokens": 928
+  },
+  "anchor_id": "hc3_039"
+}

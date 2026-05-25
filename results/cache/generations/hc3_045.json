@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "If your knee is red, swollen, numb on top, and very painful despite taking Advil, you should consider seeking medical attention. Go to the ER if you cannot walk on the knee, cannot fully bend or straighten it, or if there are areas that are extremely tender to touch. Also, if you are over 55, the risk of serious injury is higher. In the meantime, rest your knee, apply ice, elevate your leg, and continue taking pain relievers as directed. These measures can help reduce pain and swelling, especially in the first 48 hours.",
+    "llm_humanized": "Hey, sorry to hear about your knee! If it\u2019s still really hurting, red, swollen, and even numb on top after all that Advil, it\u2019s a good idea to get it checked out. Definitely head to the ER if you can\u2019t walk on it, can\u2019t move it like you normally would, or if touching certain spots is super painful. And if you\u2019re over 55, it\u2019s even more important to be cautious. For now, try to rest, keep your leg elevated, put some ice on it, and keep up with the pain meds\u2014those things usually help most in the first couple of days.",
+    "human_polished": "Hello, and thank you for your question. You should go to the ER for an X-ray if: 1) you are unable to walk on your affected knee (unable to take any steps without pain); 2) you cannot fully bend or straighten your knee as you could before; 3) there are areas of your knee that are extremely tender to touch when you check all around; or 4) you are over 55 years old, as the risk of major injury increases with age. In the meantime, rest, apply ice, elevate your leg, and take painkillers as needed\u2014these measures are most effective in the first 48 hours. I hope this helps. All the best. Regards, Dr. SBK.",
+    "dictated_spoken": "Hi there thanks for your question so you should go to the ER for an x-ray if you can't walk on your knee at all or if you can't bend or straighten it like you normally could or if there are spots that are really tender when you press around or if you're over 55 since injuries can be more serious then in the meantime just rest it put some ice on keep your leg elevated and take painkillers if you need to those things usually help the most in the first couple days hope that helps all the best Dr SBK"
+  },
+  "usage": {
+    "input_tokens": 453,
+    "output_tokens": 536,
+    "total_tokens": 989
+  },
+  "anchor_id": "hc3_045"
+}

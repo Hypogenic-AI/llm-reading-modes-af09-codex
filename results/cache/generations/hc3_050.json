@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Dark spots seen on heart imaging tests can indicate a variety of conditions, such as areas of scarring, calcification, or even masses like tumors or blood clots. Sometimes, these spots may represent regions where blood flow is reduced or tissue has been damaged, possibly from a previous heart attack or infection. The cardiologist's concern suggests that further investigation is needed to determine the exact nature of these spots, which is why another catheterization has been recommended. Since you and your brother are twins and you have a history of mitral valve prolapse with regurgitation and an enlarged left ventricle, it may be wise to discuss your own risk factors and whether additional screening is appropriate with your cardiologist. For more information, you can look up terms like 'cardiac imaging dark spots,' 'myocardial scarring,' or 'cardiac masses.'",
+    "llm_humanized": "When doctors see dark spots on heart scans, it can mean a few different things\u2014sometimes it's scar tissue, calcium deposits, or even things like small tumors or blood clots. It could also be an area where the heart muscle isn't getting enough blood, maybe from an old heart attack or an infection. Since your brother's cardiologist is concerned and wants more tests, it's important to find out exactly what these spots are. Given that you and your brother are twins and you already have some heart issues, it might be a good idea to talk to your doctor about whether you should get checked too. If you want to read more, try searching for things like 'heart imaging dark spots' or 'myocardial scarring.'",
+    "human_polished": "Hi, regarding your concern, I would need to directly review your brother\u2019s cardiac ultrasound and other test reports to provide a more professional opinion about his clinical situation. If you can upload those, I can offer more specific guidance. I am available if you need further assistance. I hope this answers your question. Please let me know if I can help further. Regards, Dr. Ilir Sharka, Cardiologist.",
+    "dictated_spoken": "Hi, so about your concern, I\u2019d really need to look at your brother\u2019s cardiac ultrasound and any other test results to give you a more accurate opinion about what\u2019s going on. If you can upload those, I can take a closer look and give you better advice. I\u2019m here if you need anything else, just let me know. Hope that helps. Thanks, Dr. Ilir Sharka, Cardiologist."
+  },
+  "usage": {
+    "input_tokens": 368,
+    "output_tokens": 522,
+    "total_tokens": 890
+  },
+  "anchor_id": "hc3_050"
+}

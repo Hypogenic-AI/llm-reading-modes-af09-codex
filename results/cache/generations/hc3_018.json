@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Pearl Harbor was bombed by the Imperial Japanese Navy on the morning of December 7, 1941, in a surprise attack against the United States naval base in Hawaii.",
+    "llm_humanized": "The bombing of Pearl Harbor happened early in the morning on December 7, 1941, when Japanese forces launched a surprise attack on the U.S. naval base in Hawaii.",
+    "human_polished": "The attack on Pearl Harbor, known as the Hawaii Operation or Operation AI by the Japanese Imperial General Headquarters (and Operation Z during planning), was a surprise military strike carried out by the Imperial Japanese Navy against the United States naval base at Pearl Harbor, Hawaii, on the morning of December 7, 1941 (which was December 8 in Japan).",
+    "dictated_spoken": "So, Pearl Harbor got bombed on the morning of December 7th, 1941, when the Japanese Navy launched a surprise attack on the U.S. naval base in Hawaii. In Japan, it was already December 8th because of the time difference. The Japanese called it the Hawaii Operation or Operation AI, and during planning, it was called Operation Z."
+  },
+  "usage": {
+    "input_tokens": 277,
+    "output_tokens": 253,
+    "total_tokens": 530
+  },
+  "anchor_id": "hc3_018"
+}

@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "During pregnancy, vaginal yeast infections can be safely treated with antifungal medications such as Monistat (miconazole), which is applied intravaginally. Since you have already used Monistat 1 and are not experiencing any further symptoms like itching or burning, it appears the treatment was effective. It is generally safe to take a bath after using Monistat, but it is advisable to wait at least 24 hours to allow the medication to be fully absorbed. Using pads to manage any discharge is a good idea. If symptoms return or worsen, consult your healthcare provider for further guidance.",
+    "llm_humanized": "Yeast infections are pretty common during pregnancy, and using something like Monistat is usually considered safe since it doesn\u2019t get absorbed much into your system. Since you\u2019ve already used Monistat 1 and aren\u2019t having any more symptoms, that\u2019s a good sign. You can usually take a bath about a day after using the treatment, just to make sure it\u2019s had time to work. Pads are helpful for any leftover discharge. If anything feels off or comes back, definitely check in with your doctor.",
+    "human_polished": "Hello and welcome to the \u2018Ask A Doctor\u2019 service. I have reviewed your query and here is my advice. Pregnancy increases the likelihood of developing a candida (yeast) infection. The standard treatment is an antifungal medication, and the Monistat you used intravaginally is an appropriate choice, as it has minimal systemic absorption. I hope I have answered your question. Please let me know if you need any further assistance.",
+    "dictated_spoken": "Hi there welcome to Ask A Doctor so I\u2019ve looked over your question and here\u2019s what I think pregnancy does make women more likely to get yeast infections and the usual treatment is an antifungal like Monistat which you used inside the vagina that\u2019s a good option since it doesn\u2019t really get into your whole system much hope that helps let me know if you have any more questions or need more info."
+  },
+  "usage": {
+    "input_tokens": 376,
+    "output_tokens": 420,
+    "total_tokens": 796
+  },
+  "anchor_id": "hc3_058"
+}

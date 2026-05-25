@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "The extreme right wing, also known as the far-right, represents the most radical end of right-wing politics. It is characterized by strong support for social hierarchies and often advocates for the supremacy of certain groups or individuals considered inherently superior. Far-right ideologies typically promote the idea that these preferred groups should hold more value and power in society compared to those deemed inferior or undesirable.",
+    "llm_humanized": "So, the extreme right wing\u2014or the far-right\u2014is basically the most radical form of right-wing politics. People on the far-right usually believe in strict social hierarchies and think that some groups or individuals are naturally better than others. They tend to support giving more value and power to those they see as superior, while looking down on or excluding those they consider less desirable.",
+    "human_polished": "The far-right, also known as the extreme right, refers to the most radical segment of right-wing politics. Far-right politics typically involves advocating for strong or even absolute social hierarchies, and supports the supremacy of certain individuals or groups who are considered innately superior or more desirable. These groups are valued more highly than those deemed to be innately inferior or undesirable.",
+    "dictated_spoken": "Yeah, so the far-right, or extreme right, that\u2019s basically the most extreme end of right-wing politics. Far-right politics is about supporting really strong or even total social hierarchies, and it\u2019s about saying that some people or groups are just naturally better or more valuable than others, so they should be on top, while those seen as inferior or undesirable are less valued."
+  },
+  "usage": {
+    "input_tokens": 274,
+    "output_tokens": 336,
+    "total_tokens": 610
+  },
+  "anchor_id": "hc3_017"
+}

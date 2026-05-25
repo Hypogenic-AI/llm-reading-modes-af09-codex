@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "llm_generated": "Sore throat, stuffy nose, and cough are commonly caused by viral infections such as the common cold or flu, but they can also result from allergies. Allergic reactions can lead to inflammation of the nasal passages and throat, causing these symptoms. The eye crusting you describe, especially upon waking, may be due to allergic conjunctivitis, which often accompanies nasal allergies. If symptoms persist or worsen, it is advisable to consult a healthcare professional for appropriate diagnosis and treatment, which may include antihistamines or other medications.",
+    "llm_humanized": "It sounds like your sore throat, stuffy nose, and cough could be from allergies or maybe a mild infection like a cold. Allergies can definitely cause those symptoms, and the eye crusting you\u2019re noticing\u2014especially in the morning\u2014can happen with allergies too, since they can affect your eyes as well as your nose and throat. If things don\u2019t get better soon or if your symptoms get worse, it\u2019s a good idea to check in with your doctor. They might recommend antihistamines or other treatments to help you feel better.",
+    "human_polished": "Hello, I understand your concern. Your symptoms suggest you may be experiencing an allergic reaction, which can cause sore throat, stuffy nose, and cough. Allergic rhinitis is a common cause of these symptoms. The eye crusting you\u2019ve noticed, especially in the mornings, can also be related to allergies. I recommend consulting your doctor, who may suggest antihistamines or other medications as appropriate. If you have any further questions, feel free to ask. Wishing you good health.",
+    "dictated_spoken": "Hi there, I get where you\u2019re coming from. Sounds like you might have some allergies going on, which can lead to a sore throat, stuffy nose, and cough. Allergic rhinitis is pretty common and can cause all those symptoms. The eye crusting you\u2019re seeing, especially when you wake up, could be part of the allergy picture too. I\u2019d suggest talking to your doctor\u2014they might recommend antihistamines or maybe antibiotics if needed. Let me know if you have more questions, and take care."
+  },
+  "usage": {
+    "input_tokens": 368,
+    "output_tokens": 452,
+    "total_tokens": 820
+  },
+  "anchor_id": "hc3_041"
+}
